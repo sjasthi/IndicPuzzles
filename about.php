@@ -6,7 +6,7 @@
 
 
 <head>
-    <title> JavaScript Quiz (About) </title>
+    <title> GPuzzles (About) </title>
 </head>
 
 <style>

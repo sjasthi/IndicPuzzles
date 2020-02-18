@@ -73,8 +73,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
             <div class="table responsive">
                 <thead>
                 <?php 
-                echo '<tr>Total count</tr>';
-                echo mysqli_query($db, $query2);
+               // echo '<tr>Total count</tr>';
+                //echo mysqli_query($db, $query2);
 
 
                 ?>
@@ -95,8 +95,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 
 
-                                <td>'.$row["author_name"].'</td>
-                                <td>'.$row["book_name"].'  </td>
+                                <td>'.$row["book_name"].'</td>
+                                <td>'.$row["author_name"].'  </td>
                                 <td>'.$row["COUNT(*)"].'</span> </td>
                             </tr>';
                     }//end while

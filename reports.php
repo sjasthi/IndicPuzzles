@@ -4,7 +4,7 @@
   $left_selected = "";
 
   include("./nav.php");
-  $query = "SELECT author_name, book_name from gpuzzles";
+  $query = "SELECT DISTINCT author_name, book_name FROM gpuzzles";
   $query2 = "SELECT count(puzzle_images) from gpuzzles";
 
 $GLOBALS['data'] = mysqli_query($db, $query);

@@ -8,9 +8,10 @@
   $query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
   //this one shows both books but no count
   //$query = "SELECT DISTINCT book_name, author_name from gpuzzles";
-  $query2 = "SELECT count(puzzle_images) from gpuzzles";
+  $query2 = "SELECT count(*) from gpuzzles";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
+//$GLOBALS['countData'] = mysqli_query($db, $query2);
  ?>
 <style>
     #title {
@@ -33,7 +34,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
  <div class="right-content">
     <div class="container">
 
-      <h3 style = "color: #01B0F1;">Summary</h3>
+      <h3 style = "color: #01B0F1;">Book, Author, and Count Summary</h3>
 <!-- Page Content -->
 <br><br>
 <div class="container-fluid">
@@ -68,13 +69,13 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     
     <div id="customerTableView">
         <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
-       
+        <button><a class="btn btn-sm" href="puzzles_list.php">Puzzle List</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
                 <?php 
                // echo '<tr>Total count</tr>';
-                //echo mysqli_query($db, $query2);
+                // $count = mysqli_query($db, $query2);
 
 
                 ?>

@@ -34,62 +34,62 @@
             </a>
 
             <a href="index.php">
-              <li <?php if($nav_selected == "HOME"){ echo 'class="current-page"'; } ?>>
+              <li>
               <img src="./images/home.png">
               <br/>Home</li>
             </a>
 
             <a href="list.php">
-              <li <?php if($nav_selected == "LIST"){ echo 'class="current-page"'; } ?>>
+              <li>
                 <img src="./images/list.png">
                 <br/>List</li>
             </a>
 
             <a href="timeline.php">
-              <li <?php if($nav_selected == "TIMELINE"){ echo 'class="current-page"'; } ?>>
+              <li>
               <img src="./images/gantt.png">
               <br/>Timeline</li>
             </a>
 
             <a href="reports.php">
-              <li <?php if($nav_selected == "REPORTS"){ echo 'class="current-page"'; } ?>>
+              <li>
               <img src="./images/reports.png">
               <br/>Reports</li>
             </a>
 
             <a href="scanner.php">
-              <li <?php if($nav_selected == "SCANNER"){ echo 'class="current-page"'; } ?>>
+              <li>
                 <img src="./images/scanner.png">
                 <br/>Scanner</li>
             </a>
 
             <a href="history.php">
-              <li <?php if($nav_selected == "HISTORY"){ echo 'class="current-page"'; } ?>>
+              <li>
                 <img src="./images/history.png">
                 <br/>History</li>
             </a>
 
             <a href="trend.php">
-              <li <?php if($nav_selected == "TREND"){ echo 'class="current-page"'; } ?>>
+              <li>
                 <img src="./images/trend.png">
                 <br/>Trend</li>
             </a>
 
 
         <a href="setup.php">
-          <li <?php if($nav_selected == "SETUP"){ echo 'class="current-page"'; } ?>>
+          <li>
             <img src="./images/setup.png">
             <br/>Setup</li>
         </a>
 
         <a href="about.php">
-          <li <?php if($nav_selected == "ABOUT"){ echo 'class="current-page"'; } ?>>
+          <li>
             <img src="./images/about.png">
             <br/>About</li>
         </a>
 
         <a href="help.php">
-          <li <?php if($nav_selected == "HELP"){ echo 'class="current-page"'; } ?>>
+          <li>
             <img src="./images/help.png">
             <br/>help</li>
         </a>

@@ -4,7 +4,10 @@
   $left_selected = "";
 
   include("./nav.php");
-  $query = "SELECT DISTINCT author_name, book_name FROM gpuzzles";
+  //this one shows the count , but only one book
+  $query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
+  //this one shows both books but no count
+  //$query = "SELECT DISTINCT book_name, author_name from gpuzzles";
   $query2 = "SELECT count(puzzle_images) from gpuzzles";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
@@ -61,7 +64,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     ?>
    
    
-    <h2 id="title">Puzzle List</h2><br>
+    <h2 id="title">Puzzle Summary Table</h2><br>
     
     <div id="customerTableView">
         <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
@@ -77,9 +80,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 ?>
                 <tr>
 
-                    <th>Author</th>
                     <th>Book</th>
- 
+                    <th>Author</th>
+                    <th>Count</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -93,7 +96,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 
                                 <td>'.$row["author_name"].'</td>
-                                <td>'.$row["book_name"].' </span> </td>
+                                <td>'.$row["book_name"].'  </td>
+                                <td>'.$row["COUNT(*)"].'</span> </td>
                             </tr>';
                     }//end while
                 }//end if

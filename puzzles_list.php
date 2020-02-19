@@ -18,6 +18,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 <?php $page_title = 'Gpuzzles list'; ?>
 <?php include('header.php'); 
+include ('nav.php');
     $page="puzzles_list.php";
     //verifyLogin($page);
 ?>

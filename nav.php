@@ -39,7 +39,7 @@
               <br/>Home</li>
             </a>
 
-            <a href="list.php">
+            <a href="puzzles_list.php">
               <li>
                 <img src="./images/list.png">
                 <br/>List</li>

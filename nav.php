@@ -41,7 +41,7 @@
 
             <a href="list.php">
               <li>
-                <img src="./images/list.png">
+                <img src="./images/books_list.png">
                 <br/>List</li>
             </a>
 

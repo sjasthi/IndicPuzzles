@@ -1,5 +1,6 @@
 <?php $page_title = 'GPuzzles > About'; ?>
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+//include("./nav.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,8 +58,13 @@
     <h2 id="title">About Us</h2>
     <h4 class="directions">GPuzzles app is created in ICS499 (Spring 2020) class at metropolitan state university. </h4>
 
-     <br> (Spring 2020) V.1.0  (Joseph Schreifels) (joseph.schreifels@my.metrostate.edu
-     <br> (Spring 2020) V.1.0 (student names) (emails)
+     <br> Based off A3-A4 solution by  (Joseph Schreifels) (joseph.schreifels@my.metrostate.edu
+     <br> Gpuzzles Team
+     <br> (Cole Burnham) ( cole.burnham@my.metrostate.edu )
+     <br> (Sommy Yang) ( sommy.yang@my.metrostate.edu )
+     <br> (Xai Vang) ( xai.vang@my.metrostate.edu )
+     <br> (Mohamed Abdullahi) ( Mohamed.abdullahi@my.metrostate.edu )
+     <br> (Corey Pike) ( cory.pike@my.metrostate.edu )
 
     <br> Acknowledgements: It used QuizMaster 1.0 (done by Alex Rader, David Jaqua, Sip Xayaxang in ICS325 Summer 2019) as the basis.
     <br>

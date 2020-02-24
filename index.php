@@ -1,7 +1,7 @@
 <?php
 require 'bin/functions.php';
 require 'db_configuration.php';
-include('header.php');
+include('nav.php');
 
 ?>
 

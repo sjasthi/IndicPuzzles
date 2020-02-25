@@ -88,4 +88,4 @@ include_once 'db_configuration.php';
           //  }
         //}else{
            // header('location: createPuzzle.php?createPuzzle=answerFailed'); 
-    }        
+        //}       

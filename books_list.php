@@ -101,8 +101,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["author_name"].'</td>
                                 <td>'.$row["book_name"].' </span> </td>
                             <!-- removed puzzle image and solution image, will add back if we need book_image -->
-                                <td><a class="btn btn-warning btn-sm" href="modifyPuzzle.php?id='.$row["id"].'">Modify</a></td>
-                                <td><a class="btn btn-danger btn-sm" href="deletePuzzle.php?id='.$row["id"].'">Delete</a></td>
+                                <td><a class="btn btn-warning btn-sm" href="modifyBook.php?id='.$row["id"].'">Modify</a></td>
+                                <td><a class="btn btn-danger btn-sm" href="deleteBook.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while
                 }//end if

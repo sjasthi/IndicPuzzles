@@ -40,19 +40,13 @@
     ?>
     <form action="createThePuzzle.php" method="POST" enctype="multipart/form-data">
         <br>
-        <h3 id="title">Create A Puzzle</h3> <br>
+        <h3 id="title">Create A Book</h3> <br>
         
         <table>
             <!-- Puzzle name -->
-            <tr>
-                <td style="width:100px">Puzzle name:</td>
-                <td><input type="text"  name="puzzleName" maxlength="50" size="50" required title="Please enter the name of the puzzle"></td>
-            </tr>
+
             <!-- Creator name -->
-            <tr>
-                <td style="width:100px">Creator:</td>
-                <td><input type="text"  name="creatorName" maxlength="50" size="50" required title="Please enter the creator's name"></td>
-            </tr>
+ 
             <!-- Author name -->
             <tr>
                 <td style="width:100px">Author:</td>
@@ -73,11 +67,7 @@
                 <td style="width:100px">Solution:</td>
                 <td><input type="file" name="solutionFileToUpload" id="solutionFileToUpload" maxlength="50" size="50" title="Enter the solution to the puzzle"></td>
             </tr>
-            <!-- Notes -->
-            <tr>
-                <td style="width:100px">Notes:</td>
-                <td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
-            </tr>
+
         </table>
 
         <br><br>

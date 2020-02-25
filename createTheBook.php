@@ -4,14 +4,14 @@ include_once 'db_configuration.php';
 
     // Initialize variables        
     echo "HERE";
-    $puzzleName = mysqli_real_escape_string($db,$_POST['puzzleName']);
-    $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
+    //$puzzleName = mysqli_real_escape_string($db,$_POST['puzzleName']);
+    //$creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
     $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
     $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
-    $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
-    $solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
-    $notes = mysqli_real_escape_string($db,$_POST['notes']);
-    $validate = true;    
+    //$puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
+    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
+    //$notes = mysqli_real_escape_string($db,$_POST['notes']);
+   // $validate = true;    
     
     if($validate){
         // ====================== Puzzle image =====================
@@ -77,8 +77,8 @@ include_once 'db_configuration.php';
         } else {
             if (move_uploaded_file($_FILES["puzzleFileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["solutionFileToUpload"]["tmp_name"], $target_file1)) {
                 
-                $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
-                VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes')
+                $sql = "INSERT INTO gpuzzles( author_name, book_name)
+                VALUES ('$authorName','$bookName')
                 ";
 
                 mysqli_query($db, $sql);

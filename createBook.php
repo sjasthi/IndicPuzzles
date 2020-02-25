@@ -38,7 +38,7 @@
     }
   
     ?>
-    <form action="createThePuzzle.php" method="POST" enctype="multipart/form-data">
+    <form action="createTheBook.php" method="POST" enctype="multipart/form-data">
         <br>
         <h3 id="title">Create A Book</h3> <br>
         

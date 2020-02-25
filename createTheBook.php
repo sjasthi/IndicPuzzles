@@ -77,7 +77,7 @@ include_once 'db_configuration.php';
         } else {
             if (move_uploaded_file($_FILES["puzzleFileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["solutionFileToUpload"]["tmp_name"], $target_file1)) {
                 
-                $sql = "INSERT INTO gpuzzles( author_name, book_name)
+                $sql = "INSERT INTO books( author_name, book_name)
                 VALUES ('$authorName','$bookName')
                 ";
 

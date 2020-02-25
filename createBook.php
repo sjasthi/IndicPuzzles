@@ -1,10 +1,10 @@
-<?php $page_title = 'Puzzles > Create Puzzle'; ?>
+<?php $page_title = 'Puzzles > Create Book'; ?>
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
     include('header.php'); 
     $page="puzzles_list.php";   
-    verifyLogin($page); 
+   // verifyLogin($page); 
 
 ?>
 <?php 
@@ -72,7 +72,7 @@
 
         <br><br>
         <div align="center" class="text-left">
-            <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Create Puzzle</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Create Book</button>
         </div>
         <br> <br>
 

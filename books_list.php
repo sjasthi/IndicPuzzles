@@ -3,7 +3,7 @@
 require 'bin/functions.php';
 require 'db_configuration.php';
 
-$query = "SELECT * FROM gpuzzles";
+$query = "SELECT * FROM books";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['topic'] = mysqli_query($db, $query);
@@ -16,10 +16,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['puzzle_image'] = mysqli_query($db, $query);
 ?>
 
-<?php $page_title = 'Gpuzzles list'; ?>
-<?php include('header.php'); 
-include ('nav.php');
-    $page="puzzles_list.php";
+<?php $page_title = 'Books list'; ?>
+<?php include('nav.php'); 
+    $page="books_list.php";
     //verifyLogin($page);
 ?>
 
@@ -72,26 +71,23 @@ include ('nav.php');
     ?>
    
    
-    <h2 id="title">Puzzle List</h2><br>
+    <h2 id="title">book List</h2><br>
     
     <div id="customerTableView">
     <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
-
-        <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                   <!-- <th>ID</th>
                     <th>Name</th>
-                    <th>Creator</th>
+                    <th>Creator</th> -->
                     <th>Author</th>
                     <th>Book</th>
-                    <th>Notes</th>
-                    <th>Puzzle</th>
-                    <th>Solution</th>                
                     <th>Modify</th>
                     <th>Delete</th>
+               
+                   <!-- <th>Delete</th> -->
                 </tr>
                 </thead>
                 <tbody>
@@ -101,16 +97,12 @@ include ('nav.php');
                     // output data of each row
                     while($row = $data->fetch_assoc()) {
                         echo '<tr>
-                                <td>'.$row["id"].'</td>
-                                <td>'.$row["puzzle_name"].' </span> </td>
-                                <td>'.$row["creator_name"].'</td>
+
                                 <td>'.$row["author_name"].'</td>
                                 <td>'.$row["book_name"].' </span> </td>
-                                <td>'.$row["notes"].' </span> </td>
-                                <td><img class="thumbnailSize" src="Images/puzzle_images/' .$row["puzzle_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$row["puzzle_image"].'"></td>
-                                <td><img class="thumbnailSize" src="Images/solution_images/' .$row["solution_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/solution_images/'.$row["solution_image"].'"></td>                                                                                         
-                                <td><a class="btn btn-warning btn-sm" href="modifyPuzzle.php?id='.$row["id"].'">Modify</a></td>
-                                <td><a class="btn btn-danger btn-sm" href="deletePuzzle.php?id='.$row["id"].'">Delete</a></td>
+                            <!-- removed puzzle image and solution image, will add back if we need book_image -->
+                                <td><a class="btn btn-warning btn-sm" href="modifyBook.php?id='.$row["id"].'">Modify</a></td>
+                                <td><a class="btn btn-danger btn-sm" href="deleteBook.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
                     }//end while
                 }//end if
@@ -127,7 +119,7 @@ include ('nav.php');
 <!-- /.container -->
 <!-- Footer -->
 <footer class="page-footer text-center">
-    <p>Joseph Schreifels - ICS 499</p>
+    <p>cougars - Gpuzzles - ICS 499</p>
 </footer>
 
 <!--JQuery-->

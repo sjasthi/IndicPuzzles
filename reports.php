@@ -5,9 +5,14 @@
 
   include("./nav.php");
   //this one shows the count , but only one book
+<<<<<<< HEAD
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
+=======
+  //$query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
+>>>>>>> febc5685ac6eb018ea71817973b15820ae4d2715
   //this one shows both books but no count
-  //$query = "SELECT DISTINCT book_name, author_name from gpuzzles";
+  $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name
+  ";
   $query2 = "SELECT count(*) from gpuzzles";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
@@ -68,6 +73,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     <h2 id="title">Puzzle Summary Table</h2><br>
     
     <div id="customerTableView">
+    <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
         <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
         <button><a class="btn btn-sm" href="puzzles_list.php">Puzzle List</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">

@@ -6,7 +6,11 @@
   include("./nav.php");
   //this one shows the count , but only one book
 <<<<<<< HEAD
+<<<<<<< HEAD
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
+=======
+  //$query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
+>>>>>>> febc5685ac6eb018ea71817973b15820ae4d2715
 =======
   //$query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
 >>>>>>> febc5685ac6eb018ea71817973b15820ae4d2715

@@ -8,7 +8,7 @@
 
 ?>
 <?php 
-    $mysqli = NEW MySQLi('localhost','root','','quiz_master');
+    $mysqli = NEW MySQLi('localhost','root','','gpuzzles_db');
     $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   
 ?>
 <link href="css/form.css" rel="stylesheet">

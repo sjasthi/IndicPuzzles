@@ -17,7 +17,7 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="styles/custom_nav.css" type="text/css">
-        <title>A Basic Composer</title>
+        <title>Gpuzzles.php</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="./mainStyleSheet.css">
@@ -56,13 +56,13 @@
               <img src="./images/reports.png">
               <br/>Reports</li>
             </a>
-
+<!-- Removed scanner button per request
             <a href="scanner.php">
               <li>
                 <img src="./images/scanner.png">
                 <br/>Scanner</li>
             </a>
-
+-->
             <a href="history.php">
               <li>
                 <img src="./images/history.png">

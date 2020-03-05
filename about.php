@@ -1,5 +1,5 @@
 <?php $page_title = 'GPuzzles > About'; ?>
-<?php include('header.php'); 
+<?php include('nav.php'); 
 //include("./nav.php");
 //testing ?>
 

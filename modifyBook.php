@@ -3,7 +3,7 @@
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
-    include('header.php'); 
+    include('nav.php'); 
     $page="books_list.php";
    // verifyLogin($page);
 

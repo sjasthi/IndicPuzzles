@@ -39,10 +39,12 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         transform:scale(3.5);
     }
 </style>
+<!-- removed the second header label for the summary table
  <div class="right-content">
     <div class="container">
 
       <h3 style = "color: #01B0F1;">Book, Author, and Count Summary</h3>
+      -->
 <!-- Page Content -->
 <br><br>
 <div class="container-fluid">

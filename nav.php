@@ -76,7 +76,7 @@
             </a>
 
 
-        <a href="setup.php">
+        <a href="preferences.php">
           <li>
             <img src="./images/setup.png">
             <br/>Setup</li>

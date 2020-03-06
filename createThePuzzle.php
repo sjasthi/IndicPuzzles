@@ -75,6 +75,23 @@ include_once 'db_configuration.php';
 
         // if everything is ok, try to upload file
         } else {
+            //mass upload 
+            <?php 
+            if(isset($_POST['submit'])){
+ 
+            // Count total files
+             $countfiles = count($_FILES['puzzleFileToUpload']['name']);
+
+            // Looping all files
+            for($i=0;$i<$countfiles;$i++){
+            $filename = $_FILES['puzzleFileToUpload']['name'][$i];
+ 
+            // Upload file
+              move_uploaded_file($_FILES['puzzleFileToUpload']['tmp_name'][$i],'upload/'.$filename);
+ 
+         }
+        } 
+
             if (move_uploaded_file($_FILES["puzzleFileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["solutionFileToUpload"]["tmp_name"], $target_file1)) {
                 
                 $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)

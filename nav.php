@@ -42,44 +42,44 @@
             <a href="puzzles_list.php">
               <li>
                 <img src="./images/list.png">
-                <br/>List</li>
+                <br/>Puzzle List</li>
             </a>
 
-            <a href="timeline.php">
+            <a href="createPuzzle.php">
               <li>
               <img src="./images/gantt.png">
-              <br/>Timeline</li>
+              <br/>Create Puzzle</li>
             </a>
 
             <a href="reports.php">
               <li>
               <img src="./images/reports.png">
-              <br/>Reports</li>
-            </a>
-<!-- Removed scanner button per request
-            <a href="scanner.php">
-              <li>
-                <img src="./images/scanner.png">
-                <br/>Scanner</li>
-            </a>
--->
-            <a href="history.php">
-              <li>
-                <img src="./images/history.png">
-                <br/>History</li>
+              <br/>Books Summary</li>
             </a>
 
-            <a href="trend.php">
+            <a href="books_list.php">
+              <li>
+                <img src="./images/scanner.png">
+                <br/>Books List</li>
+            </a>
+
+            <a href="createBook.php">
+              <li>
+                <img src="./images/history.png">
+                <br/>Create Book</li>
+            </a>
+
+            <a href="https://trello.com/b/zX9ppGC9/ics499sp20cougarsgpuzzles">
               <li>
                 <img src="./images/trend.png">
-                <br/>Trend</li>
+                <br/>Trello!</li>
             </a>
 
 
         <a href="preferences.php">
           <li>
             <img src="./images/setup.png">
-            <br/>Setup</li>
+            <br/>Preferences</li>
         </a>
 
         <a href="about.php">
@@ -87,13 +87,13 @@
             <img src="./images/about.png">
             <br/>About</li>
         </a>
-
+<!-- commenting out this lil' guy for now
         <a href="help.php">
           <li>
             <img src="./images/help.png">
             <br/>help</li>
         </a>
-
+because it bugs me from wrapping -->
       </ul>
       <br />
     </div>

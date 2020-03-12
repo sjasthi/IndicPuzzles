@@ -2,7 +2,7 @@
 require 'bin/functions.php';
 require 'db_configuration.php';
 $page_title = 'GPuzzles > Preferences';
-include('header.php'); 
+include('nav.php'); 
     $page="puzzles_list.php";    
 
 $sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_PUZZLES_PER_ROW'";

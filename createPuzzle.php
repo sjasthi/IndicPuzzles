@@ -2,9 +2,9 @@
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
-    include('header.php'); 
+    include('nav.php'); 
     $page="puzzles_list.php";   
-    verifyLogin($page); 
+ //  verifyLogin($page); 
 
 ?>
 <?php 
@@ -64,9 +64,11 @@
                 <td><input type="text"  name="bookName" maxlength="50" size="50" required title="Please enter the name of the book this puzzle will be in."></td>
             </tr>
             <!-- Puzzle -->
+
+
             <tr>
                 <td style="width:100px">Puzzle:</td>
-                <td><input type="file" name="puzzleFileToUpload" id="puzzleFileToUpload" maxlength="50" size="50" title="Enter the puzzle"></td>
+                <td><input type="file" name="puzzleFileToUpload[]" id="puzzleFileToUpload" maxlength="50" size="50" title="Enter the puzzle" multiple></td>
             </tr>
             <!-- Solution -->
             <tr>

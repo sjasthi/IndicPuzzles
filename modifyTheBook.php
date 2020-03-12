@@ -56,12 +56,11 @@ if (isset($_POST['id'])) {
             } else {
                 if (move_uploaded_file($_FILES["bookFileToUpload"]["tmp_name"], $target_file)) {
                     echo $target_file;
-                    $sql = "UPDATE books
-                    SET book_name = '$bookName',
-                        author_name = '$authorName',
-                        image_name = '$bookFileToUploadName',
-                        notes = '$notes'        
-                    
+					$sql = "UPDATE books b INNER JOIN gpuzzles g ON (b.book_name = g.book_name)
+                    SET b.book_name = '$bookName', g.book_name = '$bookName',
+                        b.author_name = '$authorName',
+                        b.image_name = '$bookFileToUploadName',
+                        b.notes = '$notes'
                     WHERE id = '$id'";
 
                     mysqli_query($db, $sql);
@@ -70,12 +69,12 @@ if (isset($_POST['id'])) {
             }
         } else {            
 
-            $sql = "UPDATE books
-                    SET book_name = '$bookName',
-                        author_name = '$authorName',
-                        notes = '$notes'     
-                
-                WHERE id = '$id'";
+					$sql = "UPDATE books b INNER JOIN gpuzzles g ON (b.book_name = g.book_name)
+                    SET b.book_name = '$bookName', g.book_name = '$bookName',
+                        b.author_name = '$authorName',
+                        b.image_name = '$bookFileToUploadName',
+                        b.notes = '$notes'
+                    WHERE id = '$id'";
 
             mysqli_query($db, $sql);
 

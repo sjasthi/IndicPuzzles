@@ -2,7 +2,7 @@
 /* Main page with two forms: sign up and log in */
 $page_title = 'GPuzzles > Login';
 require 'db_configuration.php';
-include('header.php');
+include('nav.php');
 ?>
 <!DOCTYPE html>
 <html>

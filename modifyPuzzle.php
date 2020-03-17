@@ -1,5 +1,4 @@
 
-<?php $page_title = 'Modify Puzzle'; ?>
 <?php $page_title = 'GPuzzles > Modify Puzzles'; ?>
 <?php 
     require 'bin/functions.php';

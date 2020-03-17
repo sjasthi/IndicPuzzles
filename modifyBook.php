@@ -1,4 +1,4 @@
-<?php $page_title = 'Modify Book'; ?>
+
 <?php $page_title = 'GPuzzles > Modify Book'; ?>
 <?php 
     require 'bin/functions.php';
@@ -29,33 +29,13 @@ if (isset($_GET['id'])){
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-
-      if(isset($_GET['modifyBook'])){
-        if($_GET["modifyBook"] == "fileRealFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not real, Please Try Again!</h3>';
-        }
-      }
-      if(isset($_GET['modifyBook'])){
-        if($_GET["modifyBook"] == "answerFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - Your answer was not one of the choices, Please Try Again!</h3>';
-        }
-      }
-      if(isset($_GET['modifyBook'])){
-        if($_GET["modifyBook"] == "fileTypeFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not a valid image type (jpg,jpeg,png,gif), Please Try Again!</h3>';
-        }
-      }
-      if(isset($_GET['modifyBook'])){
-        if($_GET["modifyBook"] == "fileExistFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image does not exist, Please Try Again!</h3>';
-        }
-      }
+		
 
       echo '<h2 id="title">Modify Book</h2><br>';
       echo '<form action="modifyTheBook.php" method="POST" enctype="multipart/form-data">
       <br>
       
-      <h3>'.$row["book_name"].' by '.$row["author_name"].' </h3> <br>
+      <h3>'.$row["id"].' by '.$row["book_name"].' </h3> <br>
       
       <div>
         <label for="id">Id</label>
@@ -72,18 +52,6 @@ if ($result->num_rows > 0) {
         <input type="text" class="form-control" name="authorName" value="'.$row["author_name"].'"  maxlength="100" style=width:400px required><br>
       </div>
 
-
-      <div class="form-group col-md-4">
-      <label for="cadence">New Book Image (Not Required)</label>
-      <input type="file" name="bookFileToUpload" id="bookFileToUpload" maxlength="255">
-      </div>
-      <input type="hidden" class="form-control" name="oldBookImage" value="'.$row["book_image"].'" maxlength="255" required>
-
-
-      <div>
-        <label for="optional">Notes</label>
-        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px required><br>
-      </div>
 
       <br>
       <div class="text-left">

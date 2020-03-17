@@ -64,7 +64,7 @@ if ($result->num_rows > 0) {
       
       <div>
         <label for="name">Book Name</label>
-        <input type="text" class="form-control" name="bookName" value="'.$row["book_name"].'"  maxlength="100" style=width:400px required><br>
+        <input type="select" class="form-control" name="bookName" value="'.$row["book_name"].'"  maxlength="100" style=width:400px required><br>
       </div>
           
       <div>

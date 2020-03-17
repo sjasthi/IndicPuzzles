@@ -61,7 +61,7 @@
             <!-- Book name -->
             <tr>
                 <td style="width:100px">Book name:</td>
-                <td><input type="text"  name="bookName" maxlength="50" size="50" required title="Please enter the name of the book this puzzle will be in."></td>
+                <td><input type="select"  name="bookName" maxlength="50" size="50" required title="Please enter the name of the book this puzzle will be in."></td>
             </tr>
             <!-- Puzzle -->
 

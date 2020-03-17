@@ -4,7 +4,7 @@ include_once 'db_configuration.php';
 
     // Initialize variables        
     echo "HERE";
-    $puzzleName = mysqli_real_escape_string($db,$_POST['puzzleName']);
+    $puzzleName = basename($_FILES["puzzleFileToUpload"]["name"]);
     $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
     $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
     $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
@@ -75,23 +75,12 @@ include_once 'db_configuration.php';
 
         // if everything is ok, try to upload file
         } else {
-            //mass upload 
-            <?php 
-            if(isset($_POST['submit'])){
  
-            // Count total files
-             $countfiles = count($_FILES['puzzleFileToUpload']['name']);
-
-            // Looping all files
-            for($i=0;$i<$countfiles;$i++){
-            $filename = $_FILES['puzzleFileToUpload']['name'][$i];
- 
-            // Upload file
-              move_uploaded_file($_FILES['puzzleFileToUpload']['tmp_name'][$i],'upload/'.$filename);
- 
-         }
-        } 
-
+         
+       // Count total files
+       $countfiles = count($_FILES['puzzleFileToUpload']['name']);
+       for($i=0;$i<$countfiles;$i++){
+        $filename = $_FILES['puzzleFileToUpload']['name'][$i];
             if (move_uploaded_file($_FILES["puzzleFileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["solutionFileToUpload"]["tmp_name"], $target_file1)) {
                 
                 $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
@@ -102,6 +91,5 @@ include_once 'db_configuration.php';
                 header('location: puzzles_list.php?createPuzzle=Success');
                 }
             }
-        }else{
-            header('location: createPuzzle.php?createPuzzle=answerFailed'); 
+        }
     }        

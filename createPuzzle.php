@@ -45,8 +45,7 @@
         <table>
             <!-- Puzzle name -->
             <tr>
-                <td style="width:100px">Puzzle name:</td>
-                <td><input type="text"  name="puzzleName" maxlength="50" size="50" required title="Please enter the name of the puzzle"></td>
+                <td style="width:100px">Puzzle name will be the name of the image</td>
             </tr>
             <!-- Creator name -->
             <tr>

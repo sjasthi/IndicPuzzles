@@ -7,15 +7,15 @@ if (isset($_POST['id'])){
     $id = mysqli_real_escape_string($db, $_POST['id']);
 
     // Unlink puzzle image
-    $puzzleFile = mysqli_real_escape_string($db, $_POST['author_name']);
+    $authorName = mysqli_real_escape_string($db, $_POST['author_name']);
     unlink($puzzleFile);
 
     // Unlink solution image
-    $solutionFile = mysqli_real_escape_string($db, $_POST['book_name']);
+    $bookName = mysqli_real_escape_string($db, $_POST['bookName']);
     unlink($solutionFile);
 
-    $sql = "DELETE FROM books
-            WHERE id = '$id'";
+    $sql = "DELETE books, gpuzzles FROM books INNER JOIN gpuzzles ON (books.book_name = gpuzzles.book_name)
+            WHERE books.book_name = '$bookName'";
 
     mysqli_query($db, $sql);
     header('location: books_list.php?bookDeleted=Success');

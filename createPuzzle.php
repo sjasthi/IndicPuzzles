@@ -45,7 +45,7 @@
         <table>
             <!-- Puzzle name -->
             <tr>
-                <td style="width:100px">Puzzle name will be the name of the image</td>
+                <td style="width:400px">Puzzle name will be the name of the image</td>
             </tr>
             <!-- Creator name -->
             <tr>

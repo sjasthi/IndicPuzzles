@@ -53,6 +53,30 @@ if ($result->num_rows > 0) {
       }
 
       echo '<h2 id="title">Modify Puzzle</h2><br>';
+      
+
+      $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
+      or die ('Cannot connect to db');
+      
+          $result = $conn->query("select book_name from books");
+          
+          echo "<html>";
+          echo "<body>";
+          echo "<select name='bookd_name'>";
+      
+          while ($row = $result->fetch_assoc()) {
+      
+                        unset($id, $name);
+                        $id = $row['book_name'];
+                        $name = $row['book_name']; 
+                        echo '<option value="'.$id.'">'.$name.'</option>';
+                       
+      }
+      
+          echo "</select>";
+          echo "</body>";
+          echo "</html>";
+      
       echo '<form action="modifyThePuzzle.php" method="POST" enctype="multipart/form-data">
       <br>
       
@@ -78,10 +102,7 @@ if ($result->num_rows > 0) {
         <input type="text" class="form-control" name="authorName" value="'.$row["author_name"].'"  maxlength="100" style=width:400px required><br>
       </div>
           
-      <div>
-        <label for="facilitator">Book Name</label>
-        <input type="text" class="form-control" name="bookName" value="'.$row["book_name"].'"  maxlength="100" style=width:400px required><br>
-      </div>
+
 
       <div class="form-group col-md-4">
       <label for="cadence">New Puzzle Image (Not Required)</label>

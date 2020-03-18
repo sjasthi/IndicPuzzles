@@ -45,8 +45,7 @@
         <table>
             <!-- Puzzle name -->
             <tr>
-                <td style="width:100px">Puzzle name:</td>
-                <td><input type="text"  name="puzzleName" maxlength="50" size="50" required title="Please enter the name of the puzzle"></td>
+                <td style="width:400px">Puzzle name will be the name of the image</td>
             </tr>
             <!-- Creator name -->
             <tr>
@@ -58,11 +57,36 @@
                 <td style="width:100px">Author:</td>
                 <td><input type="text"  name="authorName" maxlength="50" size="50" required title="Please enter the author's name"></td>
             </tr>
-            <!-- Book name -->
+            <!-- Book name 
             <tr>
                 <td style="width:100px">Book name:</td>
-                <td><input type="text"  name="bookName" maxlength="50" size="50" required title="Please enter the name of the book this puzzle will be in."></td>
-            </tr>
+                <td><input type="select"  name="bookName" maxlength="50" size="50" required title="Please enter the name of the book this puzzle will be in."></td>
+        -->
+                <?php
+
+$conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
+or die ('Cannot connect to db');
+
+    $result = $conn->query("select book_name from books");
+    
+    echo "<html>";
+    echo "<body>";
+    echo "<select name='bookd_name'>";
+
+    while ($row = $result->fetch_assoc()) {
+
+                  unset($id, $name);
+                  $id = $row['book_name'];
+                  $name = $row['book_name']; 
+                  echo '<option value="'.$id.'">'.$name.'</option>';
+                 
+}
+
+    echo "</select>";
+    echo "</body>";
+    echo "</html>";
+?>
+</tr>
             <!-- Puzzle -->
 
 

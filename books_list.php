@@ -45,33 +45,27 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <br><br>
 <div class="container-fluid">
 <?php
-        if(isset($_GET['createPuzzle'])){
-            if($_GET["createPuzzle"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been added!</h3>';
+        if(isset($_GET['createBook'])){
+            if($_GET["createBook"] == "Success"){
+                echo '<br><h3>Success! Your book has been added!</h3>';
             }
         }
 
-        if(isset($_GET['puzzleUpdated'])){
-            if($_GET["puzzleUpdated"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been modified!</h3>';
+        if(isset($_GET['bookUpdated'])){
+            if($_GET["bookUpdated"] == "Success"){
+                echo '<br><h3>Success! Your book has been modified!</h3>';
             }
         }
 
-        if(isset($_GET['puzzleDeleted'])){
-            if($_GET["puzzleDeleted"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been deleted!</h3>';
-            }
-        }
-
-        if(isset($_GET['createTopic'])){
-            if($_GET["createTopic"] == "Success"){
-                echo '<br><h3>Success! Your topic has been added!</h3>';
+        if(isset($_GET['bookDeleted'])){
+            if($_GET["bookDeleted"] == "Success"){
+                echo '<br><h3>Success! Your book has been deleted!</h3>';
             }
         }
     ?>
    
    
-    <h2 id="title">book List</h2><br>
+    <h2 id="title">Book List</h2><br>
     
     <div id="customerTableView">
   <!-- removing per request of instructor

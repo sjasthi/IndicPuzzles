@@ -11,10 +11,11 @@ if (isset($_POST['id'])) {
     $validate = true;
 
 
-			$sql = "UPDATE books b, gpuzzles g SET b.book_name = '$bookName', g.book_name = '$bookName', b.author_name = '$authorName' WHERE (CASE WHEN b.id = '$id' AND b.book_name = g.book_name THEN b.id = '$id' AND b.book_name = g.book_name ELSE b.id = '$id' END)";
+			$sql = "UPDATE books b, gpuzzles g SET b.book_name = '$bookName', g.book_name= '$bookName', b.author_name = '$authorName' WHERE b.id = '$id' AND b.book_name = g.book_name;
+			UPDATE books SET book_name = '$bookName', author_name = '$authorName' WHERE id = '$id'";
 
-            mysqli_query($db, $sql);
 
+		if (!mysqli_multi_query($db, $sql)) echo "Error";
             header('location: books_list.php?bookUpdated=Success');
 
 }//end if

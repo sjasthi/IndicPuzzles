@@ -15,9 +15,10 @@ if (isset($_POST['id'])){
     unlink($solutionFile);
 
     $sql = "DELETE books, gpuzzles FROM books INNER JOIN gpuzzles ON (books.book_name = gpuzzles.book_name)
-            WHERE books.book_name = '$bookName'";
+            WHERE books.book_name = '$bookName';
+            DELETE FROM books where id = '$id'";
 
-    mysqli_query($db, $sql);
+    if (!mysqli_multi_query($db, $sql)) echo "Error";
     header('location: books_list.php?bookDeleted=Success');
 }//end if
 ?>

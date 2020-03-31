@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
           
           echo "<html>";
           echo "<body>";
-          echo "<select name='bookd_name'>";
+          echo "<select name='book_name'>";
       
           while ($row = $result->fetch_assoc()) {
       

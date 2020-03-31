@@ -129,3 +129,4 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 </div>
 
 <?php include("./footer.php"); ?>
+

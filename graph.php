@@ -1,4 +1,5 @@
-
+<!-- Source : https://www.discussdesk.com/google-charts-or-graph-with-php-mysql-and-ajax.htm#Bar_Chart
+-->
 <html>
 <head>
 <!--Load the AJAX API-->

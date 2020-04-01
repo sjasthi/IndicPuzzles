@@ -34,8 +34,6 @@ $result = mysqli_query($con, "SELECT * FROM gpuzzles");
         var options = {
           chart: {
             title: 'Creators & Authors',
-            width: 5000,
-            height: 1000
           }
         };
 
@@ -47,7 +45,7 @@ $result = mysqli_query($con, "SELECT * FROM gpuzzles");
 </head>
 <body>
 
-    <div id="columnchart_material"></div>
+<div id="columnchart_material" style="width: 5000px; height: 500px;"></div>
 
 </body>
 </html>

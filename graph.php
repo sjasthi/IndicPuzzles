@@ -1,47 +1,57 @@
 <!-- Source : https://www.discussdesk.com/google-charts-or-graph-with-php-mysql-and-ajax.htm#Bar_Chart
 -->
+<?php
+include('nav.php'); 
+$con = mysqli_connect('localhost', 'root', '', 'gpuzzles_db');
+$result = mysqli_query($con, "SELECT * FROM gpuzzles");
+// if ($result){
+//     echo "CONNECTED";
+// }
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
-<!--Load the AJAX API-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript">
- 
-    // Load the Visualization API and the piechart package.
-    google.charts.load('current', {'packages':['corechart']});
- 
-    // Set a callback to run when the Google Visualization API is loaded.
-   google.charts.setOnLoadCallback(pie_chart);
- 
-    function pie_chart() {
-      var jsonData = $.ajax({
-          url: "pie_chart.php",
-          dataType: "json",
-          async: false
-          }).responseText;
- 
-      // Create our data table out of JSON data loaded from server.
- // alert(jsonData);return false;
-      var data = new google.visualization.DataTable(jsonData);
- 
-      // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.PieChart(document.getElementById('piechart_div'));
-      chart.draw(data, {width: 400, height: 240});
-    }
+
+    <meta charset="UTF-8">
+    <title>Document</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-       google.charts.setOnLoadCallback(column_chart);
-    function column_chart() {
-var jsonData = $.ajax({
-url: column_chart.php',
-dataType:"json",
-async: false,
-success: function(jsonData)
-{
-var data = new google.visualization.arrayToDataTable(jsonData);
-var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
-chart.draw(data);
-}
-}).responseText;
-  }
-</script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['puzzle_name', 'creator_name', 'author_name'],
+          
+          <?php
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                    echo "['".$row['puzzle_name']."', '".$row['creator_name']."', ['".$row['author_name']."']],";
+                }    
+            }
+
+          ?>
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Creators & Authors',
+            width: 5000,
+            height: 1000
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
 </head>
+<body>
+
+    <div id="columnchart_material"></div>
+
+</body>
+</html>

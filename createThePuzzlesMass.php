@@ -1,45 +1,9 @@
-<?php $page_title = 'Puzzles > Create Puzzle'; ?>
-<?php 
+<?php $page_title = 'Puzzles > Create Puzzles from directory';
     require 'bin/functions.php';
     require 'db_configuration.php';
-    include('nav.php'); 
-    $page="puzzles_list.php";   
- //  verifyLogin($page); 
-
-?>
-<?php 
-    $mysqli = NEW MySQLi('localhost','root','','quiz_master');
-    $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   
-?>
-<link href="css/form.css" rel="stylesheet">
-<style>#title {text-align: center; color: darkgoldenrod;}</style>
-<div class="container">
-    <!--Check the CeremonyCreated and if Failed, display the error message-->
-    <?php
-    if(isset($_GET['createPuzzle'])){
-        if($_GET["createPuzzle"] == "fileRealFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not real, Please Try Again!</h3>';
-        }
-    }
-    if(isset($_GET['createPuzzle'])){
-        if($_GET["createPuzzle"] == "answerFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - Your answer was not one of the choices, Please Try Again!</h3>';
-        }
-    }
-   // if(isset($_GET['createPuzzle'])){
-     //   if($_GET["createPuzzle"] == "fileTypeFailed"){
-       //     echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not a valid image type (jpg,jpeg,png,gif), Please Try Again!</h3>';
-       // }
-   // }
-    if(isset($_GET['createPuzzle'])){
-        if($_GET["createPuzzle"] == "fileExistFailed"){
-            echo '<br><h3 align="center" class="bg-danger">FAILURE - There is already a puzzle using that image, Please Try Again!</h3>';
-        }
-    }
-  
-    ?>
-    <form action="createThePuzzle.php" method="POST" enctype="multipart/form-data">
-        <br>
+    include('nav.php');  ?>
+<form method="post" enctype="multipart/form-data" action="#">
+<br>
         <h3 id="title">Create A Puzzle</h3> <br>
         
         <table>
@@ -87,13 +51,8 @@ or die ('Cannot connect to db');
     echo "</html>";
 ?>
 </tr>
-            <!-- new way of uploading mass images, where the user can select a directory -->
-            <tr>
-            <p>Select The Directory:
-            <input type="file" webkitdirectory mozdirectory />
-            </p>
-            <p>Select a directory of images</p>
-            </tr>
+
+
             <!-- Puzzle Old way of uploading mass images
 
             <tr>
@@ -120,4 +79,40 @@ or die ('Cannot connect to db');
 
     </form>
 </div>
+        Folder Name: <input type="text" name="foldername" /><br/>
+        Choose Directoryy:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
+    <input class="button" type="submit" value="Upload" name="upload" />
+</form>
+<?php
 
+    $mysqli = NEW MySQLi('localhost','root','','gpuzzles_db');
+    $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   
+
+   echo "HERE";
+   $puzzleName = basename($_FILES["puzzleFileToUpload"]["name"]);
+   $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
+   $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
+   $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
+   $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
+   $solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
+   $notes = mysqli_real_escape_string($db,$_POST['notes']);
+if(isset($_POST['upload']))
+{
+        if($_POST['foldername']!="")
+        {
+                $foldername=$_POST['foldername'];
+                if(!is_dir($foldername))
+                        mkdir($foldername);
+                foreach($_FILES['files']['name'] as $i=>$name)
+                {
+                        if(strlen($_FILES['files']['name'][$i]) > 1)
+                        {
+                                move_uploaded_file($_FILES['files']['tmp_name'][$i],$foldername.'/'.$name);
+                        }
+                }
+                echo "Folder is uploaded successfully ..";
+        }
+        else
+        echo "Folder uploaded Failed!!";
+}
+?>

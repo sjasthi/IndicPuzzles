@@ -1,7 +1,12 @@
 <?php $page_title = 'Puzzles > Create Puzzles from directory';
     require 'bin/functions.php';
     require 'db_configuration.php';
-    include('nav.php');  ?>
+    include('nav.php'); 
+    //resources to figure out how to do this
+    //https://stackoverflow.com/questions/22041207/is-it-possible-to-upload-a-folder-using-html-form-php-script
+    //https://jsfiddle.net/kevalpadia/vk6Ldzae/?utm_source=website&utm_medium=embed&utm_campaign=vk6Ldzae
+    //https://dcblog.dev/creating-an-image-gallery-from-a-folder-of-images-automatically
+     ?>
 <form method="post" enctype="multipart/form-data" action="#">
 <br>
         <h3 id="title">Create A Puzzle</h3> <br>

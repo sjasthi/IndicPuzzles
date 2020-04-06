@@ -75,7 +75,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     ?>
    
    
-    <h2 id="title">Puzzle Summary Table</h2><br>
+    <h2 id="title">Book Summary Table</h2><br>
     
     <div id="customerTableView">
     <!-- removing buttons per instructor request

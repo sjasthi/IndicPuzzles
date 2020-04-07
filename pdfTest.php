@@ -6,7 +6,7 @@ require 'db_configuration.php';
 $host = "localhost"; 
 $user = "root"; 
 $pass = "";
-$db = "gpuzzles_db"; 
+//$db = "gpuzzles_db"; 
 $query = "SELECT * FROM gpuzzles";
 // Create fpdf object
 $pdf = new FPDF('P', 'pt', 'Letter');
@@ -37,7 +37,7 @@ if (!$rs) {
 
 while ($row = mysqli_fetch_assoc($rs)) {
     // Get the image from each row
-    $url = $row['url'];
+    $url = $row['puzzle_image'];
 
     // Place the image in the pdf document
     $pdf->Image($url);

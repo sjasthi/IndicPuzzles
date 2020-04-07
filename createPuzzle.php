@@ -97,7 +97,7 @@ or die ('Cannot connect to db');
     echo "</html>";
     $name = 'book_name';
 ?>
-<input class="hidden" name="bookName" value ="bookName">
+<input class="hidden" name="bookName" value ="bookName"/>
   <input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
   </table>
     </form>

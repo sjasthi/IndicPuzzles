@@ -29,9 +29,9 @@ if(isset($_POST['upload']))
                 //set folder name to the selected book
               //  $foldername=$_POST['bookName'];
                 //if directory doesnt exist
-                if(!is_dir($foldername))
+                if(!is_dir($folderName))
                 //then make it
-                        mkdir($foldername);
+                        mkdir($folderName);
                 //loop through all the files and upload them using the image name as the puzzle name
                 foreach($_FILES['files']['name'] as $i=>$puzzleName)
                 {
@@ -46,7 +46,7 @@ if(isset($_POST['upload']))
 
                         if(strlen($_FILES['files']['name'][$i]) > 1)
                         {
-                                move_uploaded_file($_FILES['files']['tmp_name'][$i],$foldername.'/'.$puzzleName);
+                                move_uploaded_file($_FILES['files']['tmp_name'][$i],$folderName.'/'.$puzzleName);
                         }
                 }
                 echo "Folder is uploaded successfully ..";

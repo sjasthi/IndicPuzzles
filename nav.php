@@ -69,12 +69,17 @@
                 <br/>Create Book</li>
             </a>
 
-            <a href="https://trello.com/b/zX9ppGC9/ics499sp20cougarsgpuzzles">
+            <a href="graph.php">
               <li>
                 <img src="./images/trend.png">
-                <br/>Trello!</li>
+                <br/>Graphs</li>
             </a>
 
+            <a href="pdf.php">
+              <li>
+                <img src="./images/trains_lists.png">
+                <br/>PDF</li>
+            </a>
 
         <a href="preferences.php">
           <li>

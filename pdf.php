@@ -45,8 +45,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <!-- Page Content -->
 <br><br>
 <div class="container-fluid">
+
 <body>
-		<form method="post" action="pdf.php">
+<center><form method="post" action="pdf.php">
     <input type="text" name="q" placeholder="Search Key Words ..." required>
 			<select name="column">
 				<option value="">Select Filter</option>
@@ -55,9 +56,17 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 			</select>
 			<input type="submit" name="submit" value="Search">
  
-      <button class="btn btn-success" onclick=" window.open('test.php')"> Compile</button>
-		</form>
-
+      <!-- <button class="btn btn-success" onclick=" window.open('test.txt')"> Compile</button> -->
+		</form></center>
+        <div id="customerTableView">
+        <table class="display" id="ceremoniesTable" style="width:100%">
+            <div class="table responsive">
+                <thead>
+                <tr>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
 <?php
 	if (isset($_POST['submit'])) {
 		$connection = new mysqli("localhost", "root", "", "gpuzzles_db");
@@ -70,13 +79,17 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 		$sql = $connection->query("SELECT puzzle_image FROM gpuzzles WHERE $column LIKE '%$q%'");
 		if ($sql->num_rows > 0) {
 			while ($data = $sql->fetch_array())
-				echo '<img class="thumbnailSize" src="Images/puzzle_images/' .$data['puzzle_image']. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$data['puzzle_image'].'" <br>';
-
+                echo '<tr>
+                <td><img class="thumbnailSize" src="Images/puzzle_images/' .$data["puzzle_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$data["puzzle_image"].'"></td>
+                      </tr>';  
       } else
       echo "No puzzles found! Please check your input or filter and try again.";
   }
   
-?>
+?>                </tbody>
+            </div>
+        </table>
+    </div>
 </div>
 
 <!-- /.container -->
@@ -118,14 +131,17 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         $('#ceremoniesTable').DataTable( {
             dom: 'lfrtBip',
             buttons: [
-                'copy', 'excel', 'csv', 'pdf'
+                {
+                    extend:'pdfHtml5',
+                    orientation: 'landscape'
+                }
+
             ] }
         );
 
         $('#ceremoniesTable thead tr').clone(true).appendTo( '#ceremoniesTable thead' );
         $('#ceremoniesTable thead tr:eq(1) th').each( function (i) {
-            var title = $(this).text();
-            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+
     
             $( 'input', this ).on( 'keyup change', function () {
                 if ( table.column(i).search() !== this.value ) {

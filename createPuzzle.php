@@ -85,17 +85,19 @@ or die ('Cannot connect to db');
 
     while ($row = $result->fetch_assoc()) {
 
-                  unset($id, $name);
-                  $id = $row['book_name'];
+                  unset($bookName, $name);
+                  $bookName = $row['book_name'];
                   $name = $row['book_name']; 
-                  echo '<option value="'.$id.'">'.$name.'</option>';
+                  echo '<option value="bookName">'.$name.'</option>';
                  
     }
 
     echo "</select>";
     echo "</body>";
     echo "</html>";
+    $name = 'book_name';
 ?>
+<input class="hidden" name="bookName" value ="bookName"/>
   <input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
   </table>
     </form>

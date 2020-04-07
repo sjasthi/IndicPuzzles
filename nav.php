@@ -17,7 +17,7 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="styles/custom_nav.css" type="text/css">
-        <title>A Basic Composer</title>
+        <title>Gpuzzles.php</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="./mainStyleSheet.css">
@@ -39,47 +39,52 @@
               <br/>Home</li>
             </a>
 
-            <a href="list.php">
+            <a href="puzzles_list.php">
               <li>
-                <img src="./images/books_list.png">
-                <br/>List</li>
+                <img src="./images/list.png">
+                <br/>Puzzle List</li>
             </a>
 
-            <a href="timeline.php">
+            <a href="createPuzzle.php">
               <li>
               <img src="./images/gantt.png">
-              <br/>Timeline</li>
+              <br/>Create Puzzle</li>
             </a>
 
             <a href="reports.php">
               <li>
               <img src="./images/reports.png">
-              <br/>Reports</li>
+              <br/>Books Summary</li>
             </a>
 
-            <a href="scanner.php">
+            <a href="books_list.php">
               <li>
                 <img src="./images/scanner.png">
-                <br/>Scanner</li>
+                <br/>Books List</li>
             </a>
 
-            <a href="history.php">
+            <a href="createBook.php">
               <li>
                 <img src="./images/history.png">
-                <br/>History</li>
+                <br/>Create Book</li>
             </a>
 
-            <a href="trend.php">
+            <a href="graph.php">
               <li>
                 <img src="./images/trend.png">
-                <br/>Trend</li>
+                <br/>Graphs</li>
             </a>
 
+            <a href="pdf.php">
+              <li>
+                <img src="./images/trains_lists.png">
+                <br/>PDF</li>
+            </a>
 
-        <a href="setup.php">
+        <a href="preferences.php">
           <li>
             <img src="./images/setup.png">
-            <br/>Setup</li>
+            <br/>Preferences</li>
         </a>
 
         <a href="about.php">
@@ -87,56 +92,18 @@
             <img src="./images/about.png">
             <br/>About</li>
         </a>
-
+<!-- commenting out this lil' guy for now
         <a href="help.php">
           <li>
             <img src="./images/help.png">
             <br/>help</li>
         </a>
-
+because it bugs me from wrapping -->
       </ul>
       <br />
     </div>
 
 
-    <table style="width:1250px">
-      <tr>
-        <?php
-            if ($left_buttons == "YES") {
-        ?>
-
-        <td style="width: 120px;" valign="top">
-        <?php
-            if ($nav_selected == "HOME") {
-                include("./index.php");
-            } elseif ($nav_selected == "LIST") {
-                include("./left_menu_list.php");
-            } elseif ($nav_selected == "TIMELINE") {
-                include("./left_menu_timeline.php");
-            } elseif ($nav_selected == "REPORTS") {
-                include("./left_menu_reports.php");
-            } elseif ($nav_selected == "SCANNER") {
-                include("./left_menu_scanner.php");
-            } elseif ($nav_selected == "HISTORY") {
-                include("./left_menu_history.php");
-            } elseif ($nav_selected == "TREND") {
-              include("./left_menu_trend.php");
-           } elseif ($nav_selected == "SETUP") {
-            include("./left_menu_setup.php");
-          } elseif ($nav_selected == "ABOUT") {
-          include("./left_menu_about.php");
-          }elseif ($nav_selected == "HELP") {
-                include("./left_menu_help.php");
-            } else {
-                include("./left_menu.php");
-            }
-        ?>
-        </td>
-        <td style="width: 1100px;" valign="top">
-        <?php
-          } else {
-        ?>
-        <td style="width: 100%;" valign="top">
-        <?php
-          }
-        ?>
+		</div>
+		</body>
+		</html>

@@ -2,9 +2,10 @@
 
 require 'bin/functions.php';
 require 'db_configuration.php';
-
-$query = "SELECT * FROM books";
-
+$id = $_GET['id'];
+$query = "SELECT book_name FROM books WHERE id = $id  INNER JOIN gpuzzles";
+//TODO - need to make a page to select the data of a single book 
+//for PDF creation of all assigned books
 $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['topic'] = mysqli_query($db, $query);
 // $GLOBALS['puzzle'] = mysqli_query($db, $query);
@@ -16,9 +17,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 // $GLOBALS['puzzle_image'] = mysqli_query($db, $query);
 ?>
 
-<?php $page_title = 'Books list'; ?>
+<?php $page_title = 'Books Info'; ?>
 <?php include('nav.php'); 
-    $page="books_list.php";
+    $page="book_info.php";
     //verifyLogin($page);
 ?>
 
@@ -43,34 +44,12 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 <!-- Page Content -->
 <br><br>
-<div class="container-fluid">
-<?php
-        if(isset($_GET['createBook'])){
-            if($_GET["createBook"] == "Success"){
-                echo '<br><h3>Success! Your book has been added!</h3>';
-            }
-        }
 
-        if(isset($_GET['bookUpdated'])){
-            if($_GET["bookUpdated"] == "Success"){
-                echo '<br><h3>Success! Your book has been modified!</h3>';
-            }
-        }
-
-        if(isset($_GET['bookDeleted'])){
-            if($_GET["bookDeleted"] == "Success"){
-                echo '<br><h3>Success! Your book has been deleted!</h3>';
-            }
-        }
-    ?>
    
-   
-    <h2 id="title">Book List</h2><br>
+    <h2 id="title">book List</h2><br>
     
     <div id="customerTableView">
-  <!-- removing per request of instructor
-        <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
-      -->
+    <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
         <table class="display" id="ceremoniesTable" style="width:100%">
             <div class="table responsive">
                 <thead>
@@ -85,6 +64,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                
                    <!-- <th>Delete</th> -->
                 </tr>
+                <tr>
+                <th> Puzzles!</th>
+
                 </thead>
                 <tbody>
                 <?php

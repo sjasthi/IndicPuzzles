@@ -18,8 +18,8 @@
    $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
    $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
    $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
-   $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
-   $solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
+  // $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
+   //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
    $notes = mysqli_real_escape_string($db,$_POST['notes']);
 if(isset($_POST['upload']))
 {

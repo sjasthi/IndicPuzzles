@@ -25,20 +25,24 @@ if(isset($_POST['upload']))
 {
         if($_POST['foldername']!="")
         {
+                //set folder name to the selected book
                 $foldername=$_POST['bookName'];
+                //if directory doesnt exist
                 if(!is_dir($foldername))
+                //then make it
                         mkdir($foldername);
+                //loop through all the files and upload them using the image name as the puzzle name
                 foreach($_FILES['files']['name'] as $i=>$puzzleName)
                 {
-                
+                    //insert into database
                     $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
                     VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes')
                     ";
     
                     mysqli_query($db, $sql);
                     header('location: puzzles_list.php?createPuzzle=Success');
-                    }
-                {
+                    
+
                         if(strlen($_FILES['files']['name'][$i]) > 1)
                         {
                                 move_uploaded_file($_FILES['files']['tmp_name'][$i],$foldername.'/'.$puzzleName);

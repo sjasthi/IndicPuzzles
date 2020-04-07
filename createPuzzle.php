@@ -80,7 +80,7 @@ or die ('Cannot connect to db');
     
     echo "<html>";
     echo "<body>";
-    echo "Folder Name:";
+    echo "Folder Name/Book name:";
     echo "<select name='book_name'>";
 
     while ($row = $result->fetch_assoc()) {
@@ -90,13 +90,14 @@ or die ('Cannot connect to db');
                   $name = $row['book_name']; 
                   echo '<option value="'.$id.'">'.$name.'</option>';
                  
-}
+    }
 
     echo "</select>";
     echo "</body>";
     echo "</html>";
 ?>
-  <input class="button" type="submit" value="Upload" name="upload" />
+  <input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
+  </table>
     </form>
 </div>
 

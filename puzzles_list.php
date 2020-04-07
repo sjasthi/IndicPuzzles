@@ -48,7 +48,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <?php
         if(isset($_GET['createPuzzle'])){
             if($_GET["createPuzzle"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been added!</h3>';
+                echo '<br><h3>Success! Your puzzles have been added!</h3>';
             }
         }
 

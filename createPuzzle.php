@@ -1,4 +1,4 @@
-<?php $page_title = 'Puzzles > Create Puzzle'; ?>
+<?php $page_title = 'Puzzles > Create Puzzles'; ?>
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
@@ -38,7 +38,7 @@
     }
   
     ?>
-    <form action="createThePuzzle.php" method="POST" enctype="multipart/form-data">
+    <form action="createThePuzzlesMass.php" method="POST" enctype="multipart/form-data">
         <br>
         <h3 id="title">Create A Puzzle</h3> <br>
         
@@ -57,12 +57,21 @@
                 <td style="width:100px">Author:</td>
                 <td><input type="text"  name="authorName" maxlength="50" size="50" required title="Please enter the author's name"></td>
             </tr>
-            <!-- Book name 
+ 
+            <!-- Notes -->
             <tr>
-                <td style="width:100px">Book name:</td>
-                <td><input type="select"  name="bookName" maxlength="50" size="50" required title="Please enter the name of the book this puzzle will be in."></td>
-        -->
-                <?php
+                <td style="width:100px">Notes:</td>
+                <td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
+            </tr>
+
+    
+
+        <tr>
+            
+        Choose Directory:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
+  
+        </tr>
+        <?php
 
 $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
 or die ('Cannot connect to db');
@@ -71,53 +80,26 @@ or die ('Cannot connect to db');
     
     echo "<html>";
     echo "<body>";
-    echo "<select name='bookd_name'>";
+    echo "Folder Name/Book name:";
+    echo "<select name='book_name'>";
 
     while ($row = $result->fetch_assoc()) {
 
-                  unset($id, $name);
-                  $id = $row['book_name'];
+                  unset($bookName, $name);
+                  $bookName = $row['book_name'];
                   $name = $row['book_name']; 
-                  echo '<option value="'.$id.'">'.$name.'</option>';
+                  echo '<option value="bookName">'.$name.'</option>';
                  
-}
+    }
 
     echo "</select>";
     echo "</body>";
     echo "</html>";
+    $name = 'book_name';
 ?>
-</tr>
-            <!-- new way of uploading mass images, where the user can select a directory -->
-            <tr>
-            <p>Select The Directory:
-            <input type="file" webkitdirectory mozdirectory />
-            </p>
-            <p>Select a directory of images</p>
-            </tr>
-            <!-- Puzzle Old way of uploading mass images
-
-            <tr>
-                <td style="width:100px">Puzzle:</td>
-                <td><input type="file" name="puzzleFileToUpload[]" id="puzzleFileToUpload" maxlength="50" size="50" title="Enter the puzzle" multiple></td>
-            </tr>-->
-            <!-- Solution -->
-            <tr>
-                <td style="width:100px">Solution:</td>
-                <td><input type="file" name="solutionFileToUpload" id="solutionFileToUpload" maxlength="50" size="50" title="Enter the solution to the puzzle"></td>
-            </tr>
-            <!-- Notes -->
-            <tr>
-                <td style="width:100px">Notes:</td>
-                <td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
-            </tr>
-        </table>
-
-        <br><br>
-        <div align="center" class="text-left">
-            <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Create Puzzle</button>
-        </div>
-        <br> <br>
-
+<input class="hidden" name="bookName" value ="bookName"/>
+  <input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
+  </table>
     </form>
 </div>
 

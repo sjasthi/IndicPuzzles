@@ -6,9 +6,7 @@
     //https://stackoverflow.com/questions/22041207/is-it-possible-to-upload-a-folder-using-html-form-php-script
     //https://jsfiddle.net/kevalpadia/vk6Ldzae/?utm_source=website&utm_medium=embed&utm_campaign=vk6Ldzae
    
-     ?>
 
-<?php
 
     $mysqli = NEW MySQLi('localhost','root','','gpuzzles_db');
     $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   

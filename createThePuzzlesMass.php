@@ -5,7 +5,7 @@
     //resources to figure out how to do this
     //https://stackoverflow.com/questions/22041207/is-it-possible-to-upload-a-folder-using-html-form-php-script
     //https://jsfiddle.net/kevalpadia/vk6Ldzae/?utm_source=website&utm_medium=embed&utm_campaign=vk6Ldzae
-    //https://dcblog.dev/creating-an-image-gallery-from-a-folder-of-images-automatically
+   
      ?>
 
 <?php

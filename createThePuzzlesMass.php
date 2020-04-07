@@ -6,7 +6,9 @@
     //https://stackoverflow.com/questions/22041207/is-it-possible-to-upload-a-folder-using-html-form-php-script
     //https://jsfiddle.net/kevalpadia/vk6Ldzae/?utm_source=website&utm_medium=embed&utm_campaign=vk6Ldzae
    
+     ?>
 
+<?php
 
     $mysqli = NEW MySQLi('localhost','root','','gpuzzles_db');
     $resultset = $mysqli->query("SELECT DISTINCT topic FROM topics ORDER BY topic ASC");   
@@ -16,15 +18,16 @@
    $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
    $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
    $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
+   $folderName = mysqli_real_escape_string($db,$_POST['bookName']);
   // $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
    $notes = mysqli_real_escape_string($db,$_POST['notes']);
 if(isset($_POST['upload']))
 {
-        if($_POST['foldername']!="")
+        if($_POST['bookName']!="")
         {
                 //set folder name to the selected book
-                $foldername=$_POST['bookName'];
+              //  $foldername=$_POST['bookName'];
                 //if directory doesnt exist
                 if(!is_dir($foldername))
                 //then make it

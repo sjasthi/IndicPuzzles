@@ -4,7 +4,7 @@
     include('nav.php'); 
     //resources to figure out how to do this
     //https://stackoverflow.com/questions/22041207/is-it-possible-to-upload-a-folder-using-html-form-php-script
-    //https://jsfiddle.net/kevalpadia/vk6Ldzae/?utm_source=website&utm_medium=embed&utm_campaign=vk6Ldzae
+
    
      ?>
 
@@ -17,14 +17,14 @@
    $puzzleName = basename($_FILES["puzzleFileToUpload"]["name"]);
    $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
    $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
-   $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
-   $folderName = mysqli_real_escape_string($db,$_POST['bookName']);
+   $bookName = mysqli_real_escape_string($db,$_POST['book_name']);
+   $folderName = mysqli_real_escape_string($db,$_POST['book_name']);
   // $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
    $notes = mysqli_real_escape_string($db,$_POST['notes']);
 if(isset($_POST['upload']))
 {
-        if($_POST['bookName']!="")
+        if($_POST['book_name']!="")
         {
                 //set folder name to the selected book
               //  $foldername=$_POST['bookName'];

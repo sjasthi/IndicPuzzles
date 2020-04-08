@@ -19,8 +19,11 @@
    $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
    $bookName = mysqli_real_escape_string($db,$_POST['book_name']);
    $folderName = mysqli_real_escape_string($db,$_POST['book_name']);
-  // $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
+   //fix this
+
+  //$puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
+
    $notes = mysqli_real_escape_string($db,$_POST['notes']);
 if(isset($_POST['upload']))
 {
@@ -28,6 +31,8 @@ if(isset($_POST['upload']))
         {
                 //set folder name to the selected book
               //  $foldername=$_POST['bookName'];
+              //this didnt work
+
                 //if directory doesnt exist
                 if(!is_dir($folderName))
                 //then make it

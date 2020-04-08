@@ -66,11 +66,11 @@
 
     
 
-        <tr>
-            
-        Choose Directory:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
+            <tr>
+            <!-- folder upload -->
+            Choose Directory:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
   
-        </tr>
+            </tr>
         <?php
 
 $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
@@ -91,12 +91,13 @@ or die ('Cannot connect to db');
                   echo '<option value="bookName">'.$name.'</option>';
                  
     }
-
+//check out modify the dress to get this fixed
     echo "</select>";
     echo "</body>";
     echo "</html>";
     $name = 'book_name';
 ?>
+<!-- put the line below in for testing purposes -->
 <input class="hidden" name="bookName" value ="bookName"/>
   <input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
   </table>

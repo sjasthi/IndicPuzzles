@@ -82,6 +82,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Book</th>
                     <th>Modify</th>
                     <th>Delete</th>
+                    <th>Compile</th>
                
                    <!-- <th>Delete</th> -->
                 </tr>
@@ -99,6 +100,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                             <!-- removed puzzle image and solution image, will add back if we need book_image -->
                                 <td><a class="btn btn-warning btn-sm" href="modifyBook.php?id='.$row["id"].'">Modify</a></td>
                                 <td><a class="btn btn-danger btn-sm" href="deleteBook.php?id='.$row["id"].'">Delete</a></td>
+                                <td><a class="btn btn-success btn-sm" href="compile_the_book.php?id='.$row["id"].'">Compile</a></td>
                             </tr>';
                     }//end while
                 }//end if

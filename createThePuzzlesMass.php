@@ -18,10 +18,10 @@
    $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
    $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
    $bookName = mysqli_real_escape_string($db,$_POST['book_name']);
-   $folderName = mysqli_real_escape_string($db,$_POST['book_name']);
+   $folderName = mysqli_real_escape_string($db,$_POST['Images/puzzle_images/']);
    //fix this
 
-  //$puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
+  $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
 
    $notes = mysqli_real_escape_string($db,$_POST['notes']);
@@ -51,6 +51,7 @@ if(isset($_POST['upload']))
 
                         if(strlen($_FILES['files']['name'][$i]) > 1)
                         {
+                                //this should be creating the folder (as book name)
                                 move_uploaded_file($_FILES['files']['tmp_name'][$i],$folderName.'/'.$puzzleName);
                         }
                 }

@@ -20,7 +20,7 @@
    $bookName = mysqli_real_escape_string($db,$_POST['book_name']);
    $folderName = mysqli_real_escape_string($db,$_POST['Images/puzzle_images/']);
    //fix this
-   $target_dir = "images/puzzle_images/";
+   $target_dir = "Images/puzzle_images/";
    $target_file = $target_dir.$puzzleName;
   $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
@@ -42,6 +42,9 @@ if(isset($_POST['upload']))
                 foreach($_FILES['files']['name'] as $i=>$puzzleName)
                 {
                     //insert into database
+                    //not sure if i should have target_dir added to the puzzleFileToUpload or not? I figure it would need the
+                    //directory when querying to add to the list, either way neither worked
+                    //only seems to create new directories when in the root directory
                     $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
                     VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$target_dir.$puzzleFileToUploadName','$solutionFileToUploadName','$notes')
                     ";

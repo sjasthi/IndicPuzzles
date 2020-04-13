@@ -75,7 +75,7 @@
                 <br/>Graphs</li>
             </a>
 
-            <a href="pdf.php">
+            <a href="compile_Puzzle.php">
               <li>
                 <img src="./images/trains_lists.png">
                 <br/>PDF</li>

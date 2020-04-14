@@ -47,14 +47,12 @@ if(isset($_POST['upload']))
                     $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
                     VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$target_dir.$puzzleName','$solutionFileToUploadName','$notes')
                     "; 
-                //not sure if i should have target_dir added to the puzzleFileToUpload or not? I figure it would need the
-                    //directory when querying to add to the list, either way neither worked
-                    //only seems to create new directories when in the root directory
+                                //this one will not insert the puzzle_image into the puzzle image column
                        $sql2 = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
-                       VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes')
+                       VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleName','$solutionFileToUploadName','$notes')
                        ";
     
-                    mysqli_query($db, $sql);
+                    mysqli_query($db, $sql2);
                     header('location: puzzles_list.php?createPuzzle=Success');
                     
 

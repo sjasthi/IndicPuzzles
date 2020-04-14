@@ -28,7 +28,7 @@
     <div id="nav">
         <ul>
             <a href="index.php">
-              <li class="horozontal-li-logo">
+              <li class="horizontal-li-logo">
               <img src ="./images/main_logo.png">
               <br/>Gpuzzles</li>
             </a>
@@ -59,8 +59,8 @@
 
             <a href="books_list.php">
               <li>
-                <img src="./images/scanner.png">
-                <br/>Books List</li>
+              <img src="./images/scanner.png">
+              <br/>Books List</li>
             </a>
 
             <a href="createBook.php">
@@ -81,24 +81,17 @@
                 <br/>PDF</li>
             </a>
 
-        <a href="preferences.php">
-          <li>
-            <img src="./images/setup.png">
-            <br/>Preferences</li>
-        </a>
+			<a href="preferences.php">
+			  <li>
+				<img src="./images/setup.png">
+				<br/>Preferences</li>
+			</a>
 
-        <a href="about.php">
-          <li>
-            <img src="./images/about.png">
-            <br/>About</li>
-        </a>
-<!-- commenting out this lil' guy for now
-        <a href="help.php">
-          <li>
-            <img src="./images/help.png">
-            <br/>help</li>
-        </a>
-because it bugs me from wrapping -->
+			<a href="about.php">
+			  <li>
+				<img src="./images/about.png">
+				<br/>About</li>
+			</a>
       </ul>
       <br />
     </div>

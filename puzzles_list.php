@@ -98,6 +98,14 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 </thead>
                 <tbody>
                 <?php
+                //glob method that doesn't work
+          //  $result = array();
+           // $dir    = 'images/';
+            
+          //  foreach(glob($dir.'*.jpg') as $filename) {
+          //      $result[] = "<div class=\"box\"><img src=\"$filename\"></div>";
+            //}
+                // 
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
                     // output data of each row
@@ -109,8 +117,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["author_name"].'</td>
                                 <td>'.$row["book_name"].' </span> </td>
                                 <td>'.$row["notes"].' </span> </td>
+  
                                 <td><img class="thumbnailSize" src="Images/puzzle_images/' .$row["puzzle_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$row["puzzle_image"].'"></td>
-                                <td><img class="thumbnailSize" src="Images/solution_images/' .$row["solution_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/solution_images/'.$row["solution_image"].'"></td>                                                                                         
+                              <td><img class="thumbnailSize" src="Images/solution_images/' .$row["solution_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/solution_images/'.$row["solution_image"].'"></td>                                                                                         
                                 <td><a class="btn btn-warning btn-sm" href="modifyPuzzle.php?id='.$row["id"].'">Modify</a></td>
                                 <td><a class="btn btn-danger btn-sm" href="deletePuzzle.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';

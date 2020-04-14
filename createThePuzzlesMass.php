@@ -20,7 +20,7 @@
    $bookName = mysqli_real_escape_string($db,$_POST['book_name']);
    $folderName = mysqli_real_escape_string($db,$_POST['Images/puzzle_images/']);
    //fix this
-   $target_dir = "Images/puzzle_images/".$bookName;
+   $target_dir = "Images/puzzle_images/".$bookName."/";
    $target_file = $target_dir.$puzzleName;
   $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
@@ -43,7 +43,7 @@ if(isset($_POST['upload']))
                 {
                     //insert into database
  
-                            //this one creates the directory but doesn't insert the images in the puzzle_image column
+                            //this one creates the directory and inserts the image into the directory
                     $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
                     VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$target_dir.$puzzleName','$solutionFileToUploadName','$notes')
                     "; 
@@ -62,7 +62,7 @@ if(isset($_POST['upload']))
                         {
                                 //test method 1
                                 //this should be creating the folder (as book name)
-                                move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file.'/'.$puzzleName);
+                                move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file.$puzzleName);
                                 //test method 2
                               //  move_uploaded_file($_FILES['files']['tmp_name'][$i],$folderName.'/'.$puzzleName);
                         }

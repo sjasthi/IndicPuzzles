@@ -69,7 +69,7 @@ include('nav.php');
     }
     ?>
     <h1 id="title2">Welcome to GPuzzles</h1>
-    <h2 id="directions">Enjoy hundreds of premire puzzles free of charge!</h2><br>
+    <h2 id="directions">Enjoy hundreds of premiere puzzles free of charge!</h2><br>
 
     <?php
 

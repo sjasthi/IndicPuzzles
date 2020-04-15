@@ -17,43 +17,43 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 ?>
 
 <style>
-    #title {
-        text-align: center;
-        color: darkgoldenrod;
-    }
-    thead input {
-        width: 100%;
-    }
-    .thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(1.1);
-        transform:scale(1.1);
-    }
+	#title {
+	text-align: center;
+	color: darkgoldenrod;
+	}
+	thead input {
+	width: 100%;
+	}
+	.thumbnailSize{
+	height: 100px;
+	width: 100px;
+	transition:transform 0.25s ease;
+	}
+	.thumbnailSize:hover {
+	-webkit-transform:scale(1.1);
+	transform:scale(1.1);
+	}
 </style>
 
 <!-- Page Content -->
 <br><br>
 
-<h2 id="title">Search Puzzles</h2><br>
+		<h1 id="title">Search Puzzles</h1><br>
 
-<div class="container-fluid">
+			<div class="container-fluid">
 
-<body>
-<form method="post" action="compile_Puzzle.php" class="text-center">
+				<body>
+					<form method="post" action="compile_Puzzle.php" class="text-center">
 
-    <input type="text" name="search" value="<?php if (isset($_POST['search'])) echo $_POST['search']; ?>"placeholder="Search Key Words ..." required>
+						<input type="text" name="search" value="<?php if (isset($_POST['search'])) echo $_POST['search']; ?>"placeholder="Search Key Words ..." required>
 
-			<input type="submit" name="submit" value="Search">
+							<input type="submit" name="submit" value="Search">
 
-            <input type="submit" name="submit" target="_blank" value="Compile" formaction="compile_The_Puzzle.php" formtarget="_blank">
+								<input type="submit" name="submit" target="_blank" value="Compile" formaction="compile_The_Puzzle.php" formtarget="_blank">
 
-</form>
+								</form>
 
-<?php
+								<?php
 	if (isset($_POST['submit'])) {
 
         $connection = new mysqli("localhost", "root", "", "gpuzzles_db");
@@ -80,14 +80,15 @@ $GLOBALS['data'] = mysqli_query($db, $query);
   }
   
 ?>
-  
-              
-</div>
 
-<!-- /.container -->
-<!-- Footer -->
-<footer class="page-footer text-center">
-    <p>cougars - Gpuzzles - ICS 499</p>
-</footer>
-</body>
-</html>
+
+							</div>
+
+							<!-- /.container -->
+							<!-- Footer -->
+							<footer class="page-footer text-center">
+								<p>cougars - Gpuzzles - ICS 499</p>
+							</footer>
+						</body>
+					</html>
+					

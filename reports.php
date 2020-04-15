@@ -2,114 +2,60 @@
   $nav_selected = "REPORTS";
   $left_buttons = "NO";
   $left_selected = "";
+  include 'db_configuration.php';
 
   include("./nav.php");
-  //this one shows the count , but only one book
 
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
-
-  //$query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
-
-
-  //$query = "SELECT DISTINCT  book_name, author_name, COUNT(*) FROM gpuzzles";
-
-  //this one shows both books but no count
-  $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name
-  ";
-  $query2 = "SELECT count(*) from gpuzzles";
-
+//  $query2 = "SELECT count(*) from gpuzzles";
 $GLOBALS['data'] = mysqli_query($db, $query);
 //$GLOBALS['countData'] = mysqli_query($db, $query2);
  ?>
 <style>
-    #title {
-        text-align: center;
-        color: darkgoldenrod;
-    }
-    thead input {
-        width: 100%;
-    }
-    .thumbnailSize{
-        height: 100px;
-        width: 100px;
-        transition:transform 0.25s ease;
-    }
-    .thumbnailSize:hover {
-        -webkit-transform:scale(3.5);
-        transform:scale(3.5);
-    }
+	#total {
+	padding-top: 15px;
+	font-size: 130%;
+	}
+	#title {
+	text-align: center;
+	color: darkgoldenrod;
+	}
+	thead input {
+	width: 100%;
+	}
+	.thumbnailSize{
+	height: 100px;
+	width: 100px;
+	transition:transform 0.25s ease;
+	}
+	.thumbnailSize:hover {
+	-webkit-transform:scale(3.5);
+	transform:scale(3.5);
+	}
 </style>
-<!-- removed the second header label for the summary table
- <div class="right-content">
-    <div class="container">
 
-      <h3 style = "color: #01B0F1;">Book, Author, and Count Summary</h3>
-      -->
-<!-- Page Content -->
-<br><br>
+<br/>
+<br/>
 <div class="container-fluid">
-<?php
-        if(isset($_GET['createPuzzle'])){
-            if($_GET["createPuzzle"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been added!</h3>';
-            }
-        }
-
-        if(isset($_GET['puzzleUpdated'])){
-            if($_GET["puzzleUpdated"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been modified!</h3>';
-            }
-        }
-
-        if(isset($_GET['puzzleDeleted'])){
-            if($_GET["puzzleDeleted"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been deleted!</h3>';
-            }
-        }
-
-        if(isset($_GET['createTopic'])){
-            if($_GET["createTopic"] == "Success"){
-                echo '<br><h3>Success! Your topic has been added!</h3>';
-            }
-        }
-    ?>
-   
-   
-    <h2 id="title">Book Summary Table</h2><br>
-    
-    <div id="customerTableView">
-    <!-- removing buttons per instructor request
-    <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
-        <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
-        <button><a class="btn btn-sm" href="puzzles_list.php">Puzzle List</a></button>
-		<button><a class="btn btn-sm" href="books_list.php">Book List</a></button>
-       -->
-        <table class="display" id="ceremoniesTable" style="width:100%">
-            <div class="table responsive">
-                <thead>
-                <?php 
-               // echo '<tr>Total count</tr>';
-                // $count = mysqli_query($db, $query2);
-
-
-                ?>
-                <tr>
-
-                    <th>Book</th>
-                    <th>Author</th>
-                    <th>Count</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
+	<h1 id="title">Summary Tables</h1><br>
+		<div id="customerTableView">
+			<table class="display" id="ceremoniesTable" style="width:100%">
+				<div class="table responsive">
+					<h4>Book Summary</h4>
+					<thead>
+						<tr>
+							<th>Book</th>
+							<th>Author</th>
+							<th>Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
                     // output data of each row
                     while($row = $data->fetch_assoc()) {
-                        echo '<tr>
-
-
-
+                        echo '<span><tr>
                                 <td>'.$row["book_name"].'</td>
                                 <td>'.$row["author_name"].'  </td>
                                 <td>'.$row["COUNT(*)"].'</span> </td>
@@ -120,13 +66,67 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     echo "0 results";
                 }//end else
                 ?>
-                </tbody>
-            </div>
-        </table>
-    </div>
-</div>
-    </div>
-</div>
-
-<?php include("./footer.php"); ?>
-
+					</tbody>
+				</div>
+			</table>
+			<br><hr><br>
+						<h4>Search Puzzles By Keyword</h4><br>
+							<form  method="post" action="reports.php?go"  id="searchform">
+								<input  type="text" name="search_text" placeholder="Keyword...">
+									<input  type="submit" name="submit" value="Search">
+									</form>
+									<?php
+  if(isset($_POST['submit'])){
+	  echo	"<table class='display' id='ceremoniesTable' style='width:100%'>
+						<div class='table responsive'>
+							<thead>
+								<tr>
+									<th>Puzzle</th>
+									<th>Author</th>
+									<th>Creator</th>
+									<th>Book</th>
+								</tr>
+							</thead>
+							<tbody>";
+  if(isset($_GET['go'])){
+	  $search_text = $_POST['search_text'];
+  if(preg_match("/^[  a-zA-Z0-9]+/", $_POST['search_text'])){
+      $query4 = "SELECT puzzle_name, author_name, creator_name, book_name FROM gpuzzles WHERE puzzle_name LIKE '%" . $search_text . "%' OR creator_name LIKE '%" . $search_text . "%' OR author_name LIKE '%" . $search_text . "%' OR book_name LIKE '%" . $search_text . "%'";
+	  $keywordData = mysqli_query($db, $query4);
+	  $numrows = mysqli_num_rows($keywordData);
+  if ($keywordData->num_rows > 0) {
+                    while($row=$keywordData->fetch_assoc()){
+                            echo '<span><tr>
+                                <td>'.$row["puzzle_name"].'</td>
+                                <td>'.$row["author_name"].'</td>
+                                <td>'.$row["creator_name"].'</td>
+								<td>'.$row["book_name"].'</span> </td>
+                            </tr>';
+                    }//end while
+                }//end if
+                else {
+                    echo "0 results";
+                }//end else
+  }
+  }
+  }
+  else{
+  echo  "<p>Please enter a search query</p>";
+  }
+?>
+								</tbody>
+								<?php 
+if(isset($_POST['submit'])){
+	echo "
+	<tfoot>
+    <tr>
+      <th></th><th></th><th></th><th id='total'>Total : $numrows results found for '$search_text'</th>
+    </tr>
+</tfoot>";
+}
+   ?>
+							</div>
+						</table>
+					</div>
+				</div>
+				<?php include("./footer.php"); ?>

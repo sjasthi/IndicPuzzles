@@ -23,6 +23,7 @@
    $target_dir = "Images/puzzle_images/".$bookName."/";
    $target_file = $target_dir.$puzzleName;
   $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
+  $keywords = mysqli_real_escape_string($db,$_POST['keywords']);
    //$solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
 
    $notes = mysqli_real_escape_string($db,$_POST['notes']);
@@ -42,17 +43,17 @@ if(isset($_POST['upload']))
                 foreach($_FILES['files']['name'] as $i=>$puzzleName)
                 {
                     //insert into database
- 
+                    //code
                             //this one creates the directory and inserts the image into the directory
                     $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
-                    VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$target_dir.$puzzleName','$solutionFileToUploadName','$notes')
+                    VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$bookName.$puzzleName','$solutionFileToUploadName','$notes','$keywords')
                     "; 
                                 //this one will not insert the puzzle_image into the puzzle image column
                        $sql2 = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
                        VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleName','$solutionFileToUploadName','$notes')
                        ";
     
-                    mysqli_query($db, $sql2);
+                    mysqli_query($db, $sql);
                     header('location: puzzles_list.php?createPuzzle=Success');
                     
 

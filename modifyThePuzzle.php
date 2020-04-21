@@ -16,6 +16,7 @@ if (isset($_POST['id'])) {
     $oldSolutionImage = mysqli_real_escape_string($db, $_POST['oldSolutionimage']);
     $solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
     $notes = mysqli_real_escape_string($db, $_POST['notes']);
+    $keywords = mysqli_real_escape_string($db, $_POST['keywords']);
     $validate = true;
 
 
@@ -67,7 +68,8 @@ if (isset($_POST['id'])) {
                         book_name = '$bookName',
                         puzzle_image = '$puzzleFileToUploadName',
                         solution_image = '$solutionFileToUploadName',
-                        notes = '$notes'        
+                        notes = '$notes',
+                        keywords = '$keywords'       
                     
                     WHERE id = '$id'";
 
@@ -82,7 +84,8 @@ if (isset($_POST['id'])) {
                         creator_name = '$creatorName',
                         author_name = '$authorName',
                         book_name = '$bookName',
-                        notes = '$notes'     
+                        notes = '$notes',
+                        keywords = '$keywords'       
                 
                 WHERE id = '$id'";
 

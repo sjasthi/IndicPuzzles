@@ -1,4 +1,4 @@
-<?php $page_title = 'Puzzles > Create Puzzles'; ?>
+<?php $page_title = 'Puzzles > Create A single Puzzle'; ?>
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
@@ -34,7 +34,7 @@
     ?>
 		<form action="createThePuzzlesMass.php" method="POST" enctype="multipart/form-data">
 			<br>
-				<h1 id="title">Create A Puzzle</h1> <br>
+				<h1 id="title">Create A Single Puzzle</h1> <br>
 
 					<table>
 						<!-- Puzzle name -->
@@ -64,7 +64,7 @@
 
 										</tr>
                                         <tr>
-                                        <td style="width:100px">Keywords:</td>
+                                        <td style="width:100px">Keywords (comma separated):</td>
                                         <td><input type="text"  name="keywords" maxlength="50" size="50" required title="Please enter keywords about the puzzle."></td>
                                         </tr>
 										<?php

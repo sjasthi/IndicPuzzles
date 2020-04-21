@@ -58,11 +58,16 @@
 									<td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
 									</tr>
 
-									<tr>
-										<!-- folder upload -->
-					Choose Puzzle Image:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
-
-										</tr>
+            <!-- Puzzle -->
+            <tr>
+                <td style="width:100px">Puzzle:</td>
+                <td><input type="file" name="puzzleFileToUpload" id="puzzleFileToUpload" maxlength="50" size="50" title="Enter the puzzle"></td>
+            </tr>
+            <!-- Solution -->
+            <tr>
+                <td style="width:100px">Solution:</td>
+                <td><input type="file" name="solutionFileToUpload" id="solutionFileToUpload" maxlength="50" size="50" title="Enter the solution to the puzzle"></td>
+            </tr>
                                         <tr>
                                         <td style="width:100px">Keywords (comma separated):</td>
                                         <td><input type="text"  name="keywords" maxlength="50" size="50" required title="Please enter keywords about the puzzle."></td>

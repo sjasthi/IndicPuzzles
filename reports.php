@@ -44,7 +44,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 <div class="container-fluid">
 	<h1 id="title">Summary Tables</h1><br>
 		<div id="customerTableView">
-			<table class="display" id="ceremoniesTable" style="width:50%">
+			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Book Summary</h4>
 					<thead>
@@ -83,7 +83,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 				</div>
 			</table>
 			<br><hr><br>
-			<table class="display" id="ceremoniesTable" style="width:50%">
+			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Keyword Summary</h4>
 					<thead>
@@ -120,7 +120,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 				</div>
 			</table>
 			<br><hr><br>
-			<table class="display" id="ceremoniesTable" style="width:50%">
+			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Author Summary</h4>
 					<thead>
@@ -157,7 +157,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 				</div>
 			</table>
 						<br><hr><br>
-								<table class="display" id="ceremoniesTable" style="width:50%">
+			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Creator Summary</h4>
 					<thead>

@@ -57,17 +57,15 @@
 									<td style="width:100px">Notes:</td>
 									<td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
 									</tr>
-                                    </tr>
-                                        <tr>
-                                        <td><input type="text"  name="keywords" maxlength="50" size="50" required title="Please enter keywords about the puzzle."></td>
-                                        </tr>
-
 
 									<tr>
 										<!-- folder upload -->
-										Choose Directory:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
+					Choose Puzzle Image:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
 
 										</tr>
+                                        <tr>
+                                        <td><input type="text"  name="keywords" maxlength="50" size="50" required title="Please enter keywords about the puzzle."></td>
+
 										<?php
 
 $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
@@ -97,7 +95,7 @@ or die ('Cannot connect to db');
 //but this did
 echo'<input class="hidden" name="book_name" value ="'.$name.'"/>'
 ?>
-										<input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
+										<input class="button" type="submit" value="Create Puzzle" class="btn btn-primary btn-md align-items-center" name="upload" />
 									</table>
 								</form>
 							</div>

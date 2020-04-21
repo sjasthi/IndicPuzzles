@@ -12,6 +12,7 @@ include_once 'db_configuration.php';
     $puzzleFileToUploadName = basename($_FILES["puzzleFileToUpload"]["name"]);
     $solutionFileToUploadName = basename($_FILES["solutionFileToUpload"]["name"]);
     $notes = mysqli_real_escape_string($db,$_POST['notes']);
+    $keywords = mysqli_real_escape_string($db,$_POST['keywords']);
     $validate = true;    
     
     if($validate){
@@ -85,7 +86,7 @@ include_once 'db_configuration.php';
             if (move_uploaded_file($_FILES["puzzleFileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["solutionFileToUpload"]["tmp_name"], $target_file1)) {
                 
                 $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
-                VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes')
+                VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes','$keywords')
                 ";
 
                 mysqli_query($db, $sql);

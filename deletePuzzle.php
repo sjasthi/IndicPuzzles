@@ -71,6 +71,10 @@ if ($result->num_rows > 0) {
     <label for="optional">Notes</label>
     <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px readonly><br>
   </div>
+  <div>
+  <label for="optional">Keywords</label>
+  <input type="text" class="form-control" name="notes" value="'.$row["keywords"].'"  maxlength="100" style=width:400px readonly><br>
+</div>
            
     <br>
     <div class="text-left">

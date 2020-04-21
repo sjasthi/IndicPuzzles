@@ -25,7 +25,7 @@ if (isset($_POST['book_name'])){
             onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$data["puzzle_image"].'"> <br><br>';  
     } 
 
-    echo htmlspecialchars($_POST['contact_list']);
+    echo htmlspecialchars($_POST['contact_list_1']);
     echo '<br><br>';
 
 }//end if

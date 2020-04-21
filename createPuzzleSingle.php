@@ -1,4 +1,4 @@
-<?php $page_title = 'Puzzles > Create Puzzles (mass upload)'; ?>
+<?php $page_title = 'Puzzles > Create A single Puzzle'; ?>
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
@@ -34,7 +34,7 @@
     ?>
 		<form action="createThePuzzlesMass.php" method="POST" enctype="multipart/form-data">
 			<br>
-				<h1 id="title">Create A Puzzle</h1> <br>
+				<h1 id="title">Create A Single Puzzle</h1> <br>
 
 					<table>
 						<!-- Puzzle name -->
@@ -57,18 +57,16 @@
 									<td style="width:100px">Notes:</td>
 									<td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
 									</tr>
-                                    </tr>
+
+									<tr>
+										<!-- folder upload -->
+					Choose Puzzle Image:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
+
+										</tr>
                                         <tr>
                                         <td style="width:100px">Keywords (comma separated):</td>
                                         <td><input type="text"  name="keywords" maxlength="50" size="50" required title="Please enter keywords about the puzzle."></td>
                                         </tr>
-
-
-									<tr>
-										<!-- folder upload -->
-										Choose Directory:  <input type="file" name="files[]" id="files" multiple directory="" webkitdirectory="" mozdirectory=""><br/>
-
-										</tr>
 										<?php
 
 $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
@@ -98,7 +96,7 @@ or die ('Cannot connect to db');
 //but this did
 echo'<input class="hidden" name="book_name" value ="'.$name.'"/>'
 ?>
-										<input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />
+										<input class="button" type="submit" value="Create Puzzle" class="btn btn-primary btn-md align-items-center" name="upload" />
 									</table>
 								</form>
 							</div>

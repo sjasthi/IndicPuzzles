@@ -48,7 +48,12 @@
 															<a href="createPuzzle.php">
 																<li>
 																	<img src="./images/gantt.png">
-																		<br/>Create Puzzle</li>
+																		<br/>Mass Puzzle Upload</li>
+																</a>
+																<a href="createPuzzleSingle.php">
+																<li>
+																	<img src="./images/gantt.png">
+																		<br/>Create Single Puzzle</li>
 																</a>
 
 																<a href="reports.php">

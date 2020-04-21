@@ -103,6 +103,15 @@ if ($result->num_rows > 0) {
           
 
 
+  
+      <div>
+        <label for="optional">Notes</label>
+        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px required><br>
+      </div>
+     <div>
+     <label for="keywords">Keywords</label>
+      <input type="text"  name="keywords" value="'.$row["keywords"].'" maxlength="100" size="50" required title="Please enter keywords about the puzzle."></td>
+      </div>
       <div class="form-group col-md-4">
       <label for="cadence">New Puzzle Image (Not Required)</label>
       <input type="file" name="puzzleFileToUpload" id="puzzleFileToUpload" maxlength="255">
@@ -114,11 +123,6 @@ if ($result->num_rows > 0) {
       <input type="file" name="solutionFileToUpload" id="solutionFileToUpload" maxlength="255">
       </div>
       <input type="hidden" class="form-control" name="oldSolutionimage" value="'.$row["solution_image"].'" maxlength="255" required>
-
-      <div>
-        <label for="optional">Notes</label>
-        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px required><br>
-      </div>
 
       <br>
       <div class="text-left">

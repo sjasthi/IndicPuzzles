@@ -6,7 +6,14 @@
   include("./nav.php");
 
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
+  $query2 = "SELECT DISTINCT keywords, COUNT(*) FROM gpuzzles GROUP BY keywords";
+  $query3 = "SELECT DISTINCT author_name, COUNT(*) FROM gpuzzles GROUP BY author_name";
+  $query5 = "SELECT DISTINCT creator_name, COUNT(*) FROM gpuzzles GROUP BY creator_name";
 $GLOBALS['data'] = mysqli_query($db, $query);
+$GLOBALS['kwdata'] = mysqli_query($db, $query2);
+$GLOBALS['authordata'] = mysqli_query($db, $query3);
+$GLOBALS['creatordata'] = mysqli_query($db, $query5);
+
  ?>
 <style>
 	#total {
@@ -67,57 +74,116 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 				</div>
 			</table>
 			<br><hr><br>
-						<h4>Search Puzzles By Keyword</h4><br>
-							<form  method="post" action="reports.php?kw"  id="searchform">
-								<input  type="text" name="search_text" placeholder="Keyword...">
-									<input  type="submit" name="submit" value="Search">
-									</form>
-									<?php
-  if(isset($_POST['submit'])){
-	  echo	"<table class='display' id='ceremoniesTable' style='width:100%'>
-						<div class='table responsive'>
-							<thead>
-								<tr>
-									<th>Puzzle</th>
-									<th>Author</th>
-									<th>Creator</th>
-									<th>Book</th>
-								</tr>
-							</thead>
-							<tbody>";
-  if(isset($_GET['kw'])){
-	  $search_text = $_POST['search_text'];
-  if(preg_match("/^[  a-zA-Z0-9]+/", $_POST['search_text'])){
-      $query4 = "SELECT puzzle_name, author_name, creator_name, book_name FROM gpuzzles WHERE puzzle_name LIKE '%" . $search_text . "%' OR creator_name LIKE '%" . $search_text . "%' OR author_name LIKE '%" . $search_text . "%' OR book_name LIKE '%" . $search_text . "%'";
-	  $keywordData = mysqli_query($db, $query4);
-	  $numrows = mysqli_num_rows($keywordData);
-  if ($keywordData->num_rows > 0) {
-                    while($row=$keywordData->fetch_assoc()){
-                            echo '<span><tr>
-                                <td>'.$row["puzzle_name"].'</td>
-                                <td>'.$row["author_name"].'</td>
-                                <td>'.$row["creator_name"].'</td>
-								<td>'.$row["book_name"].'</span> </td>
+			<table class="display" id="ceremoniesTable" style="width:100%">
+				<div class="table responsive">
+					<h4>Keyword Summary</h4>
+					<thead>
+						<tr>
+							<th>Keyword</th>
+							<th>Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+                // fetch the data from $_GLOBALS
+                if ($kwdata->num_rows > 0) {
+                    // output data of each row
+					$qty = 0;
+                    while($row2 = $kwdata->fetch_assoc()) {
+                        echo '<span><tr>
+                                <td>'.$row2["keywords"].'</td>
+                                <td>'.$row2["COUNT(*)"].'</span> </td>
                             </tr>';
+							$qty += $row2["COUNT(*)"];
                     }//end while
-                }//end if(numrows)
-			}//end if(match)
-		}//end if(kw)
-	}//end if(submit)
-  else{
-  echo  "<p>Please enter a search query</p>";
-  }
-  echo "</tbody>";
-  
-if(isset($_POST['submit'])){
-	echo "
+                }//end if
+                else {
+                    echo "0 results";
+                }//end else
+					echo "
 	<tfoot>
     <tr>
-      <th></th><th></th><th></th><th id='total'>Total : $numrows results found for '$search_text'</th>
+     <th></th><th id='total'>Total : $qty</th>
     </tr>
 </tfoot>";
-}
-   ?>
+                ?>
+					</tbody>
+				</div>
+			</table>
+			<br><hr><br>
+								<table class="display" id="ceremoniesTable" style="width:100%">
+				<div class="table responsive">
+					<h4>Author Summary</h4>
+					<thead>
+						<tr>
+							<th>Author</th>
+							<th>Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+                // fetch the data from $_GLOBALS
+                if ($authordata->num_rows > 0) {
+                    // output data of each row
+					$qty = 0;
+                    while($row3 = $authordata->fetch_assoc()) {
+                        echo '<span><tr>
+                                <td>'.$row3["author_name"].'</td>
+                                <td>'.$row3["COUNT(*)"].'</span> </td>
+                            </tr>';
+							$qty += $row3["COUNT(*)"];
+                    }//end while
+                }//end if
+                else {
+                    echo "0 results";
+                }//end else
+					echo "
+	<tfoot>
+    <tr>
+     <th></th><th id='total'>Total : $qty</th>
+    </tr>
+</tfoot>";
+                ?>
+					</tbody>
+				</div>
+			</table>
+						<br><hr><br>
+								<table class="display" id="ceremoniesTable" style="width:100%">
+				<div class="table responsive">
+					<h4>Creator Summary</h4>
+					<thead>
+						<tr>
+							<th>Creator</th>
+							<th>Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+                // fetch the data from $_GLOBALS
+                if ($creatordata->num_rows > 0) {
+                    // output data of each row
+					$qty = 0;
+                    while($row4 = $creatordata->fetch_assoc()) {
+                        echo '<span><tr>
+                                <td>'.$row4["creator_name"].'</td>
+                                <td>'.$row4["COUNT(*)"].'</span> </td>
+                            </tr>';
+							$qty += $row4["COUNT(*)"];
+                    }//end while
+                }//end if
+                else {
+                    echo "0 results";
+                }//end else
+					echo "
+	<tfoot>
+    <tr>
+     <th></th><th id='total'>Total : $qty</th>
+    </tr>
+</tfoot>";
+                ?>
+					</tbody>
+				</div>
+			</table>
 							</div>
 						</table>
 						<hr>

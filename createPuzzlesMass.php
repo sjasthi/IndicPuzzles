@@ -34,7 +34,7 @@
     ?>
 		<form action="createThePuzzlesMass.php" method="POST" enctype="multipart/form-data">
 			<br>
-				<h1 id="title">Create A Puzzle</h1> <br>
+				<h1 id="title">Mass Upload Puzzles</h1> <br>
 
 					<table>
 						<!-- Puzzle name -->

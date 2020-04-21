@@ -45,7 +45,7 @@
 																	<br/>Puzzle List</li>
 															</a>
 
-															<a href="createPuzzle.php">
+															<a href="createPuzzlesMass.php">
 																<li>
 																	<img src="./images/gantt.png">
 																		<br/>Mass Puzzle Upload</li>

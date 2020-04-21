@@ -77,21 +77,16 @@ include_once 'db_configuration.php';
 
         // if everything is ok, try to upload file
         } else {
- 
-         
-       // Count total files
-       $countfiles = count($_FILES['puzzleFileToUpload']['name']);
-       for($i=0;$i<$countfiles;$i++){
-        $filename = $_FILES['puzzleFileToUpload']['name'][$i];
             if (move_uploaded_file($_FILES["puzzleFileToUpload"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["solutionFileToUpload"]["tmp_name"], $target_file1)) {
                 
                 $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)
-                VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes','$keywords')
+                VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleFileToUploadName','$solutionFileToUploadName','$notes', '$keywords')
                 ";
 
                 mysqli_query($db, $sql);
                 header('location: puzzles_list.php?createPuzzle=Success');
                 }
             }
-        }
+        }else{
+            header('location: createPuzzle.php?createPuzzle=answerFailed'); 
     }        

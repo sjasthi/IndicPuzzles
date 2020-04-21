@@ -98,14 +98,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 </thead>
                 <tbody>
                 <?php
-                //glob method that doesn't work
-          //  $result = array();
-           // $dir    = 'images/';
-            
-          //  foreach(glob($dir.'*.jpg') as $filename) {
-          //      $result[] = "<div class=\"box\"><img src=\"$filename\"></div>";
-            //}
-                // add in a button to create single puzzle
+
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
                     // output data of each row

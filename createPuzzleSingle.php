@@ -32,7 +32,7 @@
         }
     }
     ?>
-		<form action="createThePuzzlesMass.php" method="POST" enctype="multipart/form-data">
+		<form action="createThePuzzle.php" method="POST" enctype="multipart/form-data">
 			<br>
 				<h1 id="title">Create A Single Puzzle</h1> <br>
 
@@ -70,7 +70,7 @@
             </tr>
                                         <tr>
                                         <td style="width:100px">Keywords (comma separated):</td>
-                                        <td><input type="text"  name="keywords" maxlength="50" size="50" required title="Please enter keywords about the puzzle."></td>
+                                        <td><input type="text"  name="keywords" maxlength="50" size="50" title="Please enter keywords about the puzzle."></td>
                                         </tr>
 										<?php
 

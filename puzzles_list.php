@@ -89,6 +89,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Author</th>
                     <th>Book</th>
                     <th>Notes</th>
+                    <th>Keywords</th>
                     <th>Puzzle</th>
                     <th>Solution</th>                
                     <th>Modify</th>
@@ -115,7 +116,9 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["creator_name"].'</td>
                                 <td>'.$row["author_name"].'</td>
                                 <td>'.$row["book_name"].' </span> </td>
-                                <td>'.$row["notes"].' </span> </td>
+                                <td>'.$row["notes"].'</span></td>
+                                <td>'.$row["keywords"].' </span> </td>
+
   
                                 <td><img class="thumbnailSize" src="Images/puzzle_images/' .$row["puzzle_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$row["puzzle_image"].'"></td>
                               <td><img class="thumbnailSize" src="Images/solution_images/' .$row["solution_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/solution_images/'.$row["solution_image"].'"></td>                                                                                         

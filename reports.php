@@ -3,13 +3,10 @@
   $left_buttons = "NO";
   $left_selected = "";
   include 'db_configuration.php';
-
   include("./nav.php");
 
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
-//  $query2 = "SELECT count(*) from gpuzzles";
 $GLOBALS['data'] = mysqli_query($db, $query);
-//$GLOBALS['countData'] = mysqli_query($db, $query2);
  ?>
 <style>
 	#total {
@@ -71,7 +68,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 			</table>
 			<br><hr><br>
 						<h4>Search Puzzles By Keyword</h4><br>
-							<form  method="post" action="reports.php?go"  id="searchform">
+							<form  method="post" action="reports.php?kw"  id="searchform">
 								<input  type="text" name="search_text" placeholder="Keyword...">
 									<input  type="submit" name="submit" value="Search">
 									</form>
@@ -88,7 +85,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 								</tr>
 							</thead>
 							<tbody>";
-  if(isset($_GET['go'])){
+  if(isset($_GET['kw'])){
 	  $search_text = $_POST['search_text'];
   if(preg_match("/^[  a-zA-Z0-9]+/", $_POST['search_text'])){
       $query4 = "SELECT puzzle_name, author_name, creator_name, book_name FROM gpuzzles WHERE puzzle_name LIKE '%" . $search_text . "%' OR creator_name LIKE '%" . $search_text . "%' OR author_name LIKE '%" . $search_text . "%' OR book_name LIKE '%" . $search_text . "%'";
@@ -103,19 +100,15 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 								<td>'.$row["book_name"].'</span> </td>
                             </tr>';
                     }//end while
-                }//end if
-                else {
-                    echo "0 results";
-                }//end else
-  }
-  }
-  }
+                }//end if(numrows)
+			}//end if(match)
+		}//end if(kw)
+	}//end if(submit)
   else{
   echo  "<p>Please enter a search query</p>";
   }
-?>
-								</tbody>
-								<?php 
+  echo "</tbody>";
+  
 if(isset($_POST['submit'])){
 	echo "
 	<tfoot>
@@ -127,6 +120,7 @@ if(isset($_POST['submit'])){
    ?>
 							</div>
 						</table>
+						<hr>
 					</div>
 				</div>
-				<?php include("./footer.php"); ?>
+<br>

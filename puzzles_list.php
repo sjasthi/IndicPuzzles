@@ -137,7 +137,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <!-- /.container -->
 <!-- Footer -->
 <footer class="page-footer text-center">
-    <p>Joseph Schreifels - ICS 499</p>
+    <p>Cougars - ICS 499</p>
 </footer>
 
 <!--JQuery-->

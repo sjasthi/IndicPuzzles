@@ -48,7 +48,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <?php
         if(isset($_GET['createPuzzle'])){
             if($_GET["createPuzzle"] == "Success"){
-                echo '<br><h3>Success! Your puzzle has been added!</h3>';
+                echo '<br><h3>Success! Your puzzles have been added!</h3>';
             }
         }
 
@@ -77,7 +77,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     <div id="customerTableView">
        <!-- 
     <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
-
     <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
        -->
         <table class="display" id="ceremoniesTable" style="width:100%">
@@ -90,6 +89,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Author</th>
                     <th>Book</th>
                     <th>Notes</th>
+                    <th>Keywords</th>
                     <th>Puzzle</th>
                     <th>Solution</th>                
                     <th>Modify</th>
@@ -98,6 +98,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 </thead>
                 <tbody>
                 <?php
+
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
                     // output data of each row
@@ -108,9 +109,12 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["creator_name"].'</td>
                                 <td>'.$row["author_name"].'</td>
                                 <td>'.$row["book_name"].' </span> </td>
-                                <td>'.$row["notes"].' </span> </td>
+                                <td>'.$row["notes"].'</span></td>
+                                <td>'.$row["keywords"].' </span> </td>
+
+  
                                 <td><img class="thumbnailSize" src="Images/puzzle_images/' .$row["puzzle_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$row["puzzle_image"].'"></td>
-                                <td><img class="thumbnailSize" src="Images/solution_images/' .$row["solution_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/solution_images/'.$row["solution_image"].'"></td>                                                                                         
+                              <td><img class="thumbnailSize" src="Images/solution_images/' .$row["solution_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/solution_images/'.$row["solution_image"].'"></td>                                                                                         
                                 <td><a class="btn btn-warning btn-sm" href="modifyPuzzle.php?id='.$row["id"].'">Modify</a></td>
                                 <td><a class="btn btn-danger btn-sm" href="deletePuzzle.php?id='.$row["id"].'">Delete</a></td>
                             </tr>';
@@ -129,7 +133,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <!-- /.container -->
 <!-- Footer -->
 <footer class="page-footer text-center">
-    <p>Joseph Schreifels - ICS 499</p>
+    <p>Cougars - ICS 499</p>
 </footer>
 
 <!--JQuery-->

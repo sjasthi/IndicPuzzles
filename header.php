@@ -32,11 +32,6 @@ if(!isset($page_title)) { $page_title = 'GPuzzles'; }
         <ul class="navbar-nav mr-auto">
             <a href="index.php" title="GPuzzles"><img id="silc" src="Images/index_images/Logo.jpg"></a> 
             
-            <!-- Login / Logout Nav menu item
-               Checks if there is a valid session and if so displays "logout"
-               If there isn's a valid session display login. -->
-
-            <!-- End Login / Logout Nav menu item -->
         </ul>
         <!--<form class="form-inline my-2 my-lg-0" action="index.php" method="POST">
             <input class="form-control mr-sm-2" type="search" type="text" name="search" placeholder="Search">

@@ -64,7 +64,8 @@ CREATE TABLE `gpuzzles` (
   `book_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'what is the name of the compilation or book in which this puzzle is going in?',
   `puzzle_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'we will carry only the image name in DB',
   `solution_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'we will carry only the image name in DB',
-  `notes` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'to capture any misc. notes'
+  `notes` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'to capture any misc. notes',
+  `keywords` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'for keywords'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

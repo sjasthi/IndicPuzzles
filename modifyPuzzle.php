@@ -1,4 +1,3 @@
-
 <?php $page_title = 'GPuzzles > Modify Puzzles'; ?>
 <?php 
     require 'bin/functions.php';
@@ -20,7 +19,7 @@ if (isset($_GET['id'])){
     
     $sql = "SELECT * FROM gpuzzles
             WHERE id = '$id'";
-
+			
     if (!$result = $db->query($sql)) {
         die ('There was an error running query[' . $connection->error . ']');
     }//end if
@@ -30,7 +29,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
-      if(isset($_GET['modifyPuzzle'])){
+       if(isset($_GET['modifyPuzzle'])){
         if($_GET["modifyPuzzle"] == "fileRealFailed"){
             echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image is not real, Please Try Again!</h3>';
         }
@@ -50,32 +49,9 @@ if ($result->num_rows > 0) {
             echo '<br><h3 align="center" class="bg-danger">FAILURE - Your image does not exist, Please Try Again!</h3>';
         }
       }
-
+ 
       echo '<h2 id="title">Modify Puzzle</h2><br>';
-      
 
-      $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
-      or die ('Cannot connect to db');
-      
-          $result = $conn->query("select book_name from books");
-          
-          echo "<html>";
-          echo "<body>";
-          echo "<select name='book_name'>";
-      
-          while ($row = $result->fetch_assoc()) {
-      
-                        unset($id, $name);
-                        $id = $row['book_name'];
-                        $name = $row['book_name']; 
-                        echo '<option value="'.$id.'">'.$name.'</option>';
-                       
-      }
-      
-          echo "</select>";
-          echo "</body>";
-          echo "</html>";
-      
       echo '<form action="modifyThePuzzle.php" method="POST" enctype="multipart/form-data">
       <br>
       
@@ -100,9 +76,16 @@ if ($result->num_rows > 0) {
         <label for="level">Author Name</label>
         <input type="text" class="form-control" name="authorName" value="'.$row["author_name"].'"  maxlength="100" style=width:400px required><br>
       </div>
-          
 
-
+      <div>
+        <label for="optional">Notes</label>
+        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px required><br>
+      </div>
+     <div>
+     <label for="keywords">Keywords</label>
+      <input type="text" class="form-control" name="keywords" value="'.$row["keywords"].'" maxlength="100" style=width:400px required title="Please enter keywords about the puzzle."></td>
+      </div>
+	  <br>
       <div class="form-group col-md-4">
       <label for="cadence">New Puzzle Image (Not Required)</label>
       <input type="file" name="puzzleFileToUpload" id="puzzleFileToUpload" maxlength="255">
@@ -115,19 +98,30 @@ if ($result->num_rows > 0) {
       </div>
       <input type="hidden" class="form-control" name="oldSolutionimage" value="'.$row["solution_image"].'" maxlength="255" required>
 
-      <div>
-        <label for="optional">Notes</label>
-        <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px required><br>
-      </div>
-
       <br>
       <div class="text-left">
       <button type="submit" name="submit" class="btn btn-primary btn-md align-items-center">Modify Puzzle</button>
       </div>
       <br> 
-      <br>
+      <br>';
+            $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
+      or die ('Cannot connect to db');
       
-      </form>';
+          $result = $conn->query("select * from books");
+
+          echo "<select name='book_name'>";
+      
+          while ($row = $result->fetch_assoc()) {
+      
+                        unset($id, $name);
+                        $id = $row['book_name'];
+                        $name = $row['book_name']; 
+                        echo '<option value="'.$id.'">'.$name.'</option>';
+                       
+      }
+      
+          echo "</select>";
+      echo "</form>";
     
     }//end while
 }//end if

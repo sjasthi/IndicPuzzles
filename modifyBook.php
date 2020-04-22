@@ -1,4 +1,3 @@
-
 <?php $page_title = 'GPuzzles > Modify Book'; ?>
 <?php 
     require 'bin/functions.php';

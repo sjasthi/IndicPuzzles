@@ -6,7 +6,7 @@
   include("./nav.php");
 
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
-  $query2 = "SELECT DISTINCT keywords, COUNT(*) FROM gpuzzles GROUP BY keywords";
+  $query2 = "SELECT DISTINCT keywords, COUNT(*) FROM gpuzzles CROSS APPLY STRING_SPLIT(keywords, ',') GROUP BY keywords";
   $query3 = "SELECT DISTINCT author_name, COUNT(*) FROM gpuzzles GROUP BY author_name";
   $query5 = "SELECT DISTINCT creator_name, COUNT(*) FROM gpuzzles GROUP BY creator_name";
 $GLOBALS['data'] = mysqli_query($db, $query);

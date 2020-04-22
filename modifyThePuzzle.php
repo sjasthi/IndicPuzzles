@@ -69,8 +69,7 @@ if (isset($_POST['id'])) {
                         puzzle_image = '$puzzleFileToUploadName',
                         solution_image = '$solutionFileToUploadName',
                         notes = '$notes',
-                        keywords = '$keywords'       
-                    
+                        keywords = '$keywords'
                     WHERE id = '$id'";
 
                     mysqli_query($db, $sql);
@@ -85,8 +84,7 @@ if (isset($_POST['id'])) {
                         author_name = '$authorName',
                         book_name = '$bookName',
                         notes = '$notes',
-                        keywords = '$keywords'       
-                
+                        keywords = '$keywords'
                 WHERE id = '$id'";
 
             mysqli_query($db, $sql);

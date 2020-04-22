@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
         <label for="level">Author Name</label>
         <input type="text" class="form-control" name="authorName" value="'.$row["author_name"].'"  maxlength="100" style=width:400px required><br>
       </div>
-          
+
       <div>
         <label for="optional">Notes</label>
         <input type="text" class="form-control" name="notes" value="'.$row["notes"].'"  maxlength="100" style=width:400px required><br>

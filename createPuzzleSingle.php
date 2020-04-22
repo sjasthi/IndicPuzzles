@@ -39,26 +39,26 @@
 					<table>
 						<!-- Puzzle name -->
 					           <!-- Puzzle name -->
-                               <tr>
+            <tr>
                 <td style="width:100px">Puzzle name:</td>
                 <td><input type="text"  name="puzzleName" maxlength="50" size="50" required title="Please enter the name of the puzzle"></td>
             </tr>
 						<!-- Creator name -->
-						<tr>
-							<td style="width:100px">Creator:</td>
-							<td><input type="text"  name="creatorName" maxlength="50" size="50" required title="Please enter the creator's name"></td>
-							</tr>
-							<!-- Author name -->
-							<tr>
-								<td style="width:100px">Author:</td>
-								<td><input type="text"  name="authorName" maxlength="50" size="50" required title="Please enter the author's name"></td>
-								</tr>
+			<tr>
+			    <td style="width:100px">Creator:</td>
+			    <td><input type="text"  name="creatorName" maxlength="50" size="50" required title="Please enter the creator's name"></td>
+			</tr>
+			<!-- Author name -->
+			<tr>
+			    <td style="width:100px">Author:</td>
+			    <td><input type="text"  name="authorName" maxlength="50" size="50" required title="Please enter the author's name"></td>
+			</tr>
 
-								<!-- Notes -->
-								<tr>
-									<td style="width:100px">Notes:</td>
-									<td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
-									</tr>
+			<!-- Notes -->
+			<tr>
+			    <td style="width:100px">Notes:</td>
+			    <td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
+			</tr>
 
             <!-- Puzzle -->
             <tr>
@@ -70,11 +70,11 @@
                 <td style="width:100px">Solution:</td>
                 <td><input type="file" name="solutionFileToUpload" id="solutionFileToUpload" maxlength="50" size="50" title="Enter the solution to the puzzle"></td>
             </tr>
-                                        <tr>
-                                        <td style="width:100px">Keywords (comma separated):</td>
-                                        <td><input type="text"  name="keywords" maxlength="50" size="50" title="Please enter keywords about the puzzle."></td>
-                                        </tr>
-										<?php
+            <tr>
+                <td style="width:100px">Keywords (comma separated):</td>
+                <td><input type="text"  name="keywords" maxlength="50" size="50" title="Please enter keywords about the puzzle."></td>
+            </tr>
+		<?php
 
 $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
 or die ('Cannot connect to db');
@@ -103,9 +103,9 @@ or die ('Cannot connect to db');
 //but this did
 echo'<input class="hidden" name="book_name" value ="'.$name.'"/>'
 ?>
-										<input class="button" type="submit" value="Create Puzzle" class="btn btn-primary btn-md align-items-center" name="upload" />
-									</table>
-								</form>
-							</div>
+	<input class="button" type="submit" value="Create Puzzle" class="btn btn-primary btn-md align-items-center" name="upload" />
+		</table>
+				</form>
+			</div>
 
 							

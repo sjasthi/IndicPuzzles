@@ -1,4 +1,4 @@
-<?php $page_title = 'Puzzles > Create Puzzles'; ?>
+<?php $page_title = 'Puzzles > Create Puzzles (mass upload)'; ?>
 <?php 
     require 'bin/functions.php';
     require 'db_configuration.php';
@@ -34,7 +34,7 @@
     ?>
 		<form action="createThePuzzlesMass.php" method="POST" enctype="multipart/form-data">
 			<br>
-				<h1 id="title">Create A Puzzle</h1> <br>
+				<h1 id="title">Mass Upload Puzzles</h1> <br>
 
 					<table>
 						<!-- Puzzle name -->
@@ -57,7 +57,11 @@
 									<td style="width:100px">Notes:</td>
 									<td><input type="text"  name="notes" maxlength="50" size="50" required title="Please enter notes about the puzzle."></td>
 									</tr>
-
+                                    </tr>
+                                        <tr>
+                                        <td style="width:100px">Keywords (comma separated):</td>
+                                        <td><input type="text"  name="keywords" maxlength="50" size="50"  title="Please enter keywords about the puzzle."></td>
+                                        </tr>
 
 
 									<tr>
@@ -82,14 +86,16 @@ or die ('Cannot connect to db');
                   unset($bookName, $name);
                   $bookName = $row['book_name'];
                   $name = $row['book_name']; 
+                  //append the name for the option parameter to be passed to DB
                   echo '<option value="book_name">'.$name.'</option>';
                  
     }
 //check out modify the dress to get this fixed
+//modify dress method didnt work
     echo "</select>";
     echo "</body>";
     echo "</html>";
-
+//but this did
 echo'<input class="hidden" name="book_name" value ="'.$name.'"/>'
 ?>
 										<input class="button" type="submit" value="Create Puzzles" class="btn btn-primary btn-md align-items-center" name="upload" />

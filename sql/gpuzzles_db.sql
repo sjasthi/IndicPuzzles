@@ -39,7 +39,7 @@ CREATE TABLE `books` (
   `id` int(50) NOT NULL,
   `book_name` varchar(50) CHARACTER SET latin1 NOT NULL,
   `author_name` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `image_name` varchar(50) CHARACTER SET latin1 NOT NULL
+  `book_cover` varchar(50) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

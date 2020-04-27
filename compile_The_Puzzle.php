@@ -22,12 +22,14 @@
 
         $connection = new mysqli("localhost", "root", "", "gpuzzles_db");
         
-        $q = $connection->real_escape_string($_POST['search']);
-        
+        $k = $connection->real_escape_string($_POST['k']);
+        $a = $connection->real_escape_string($_POST['a']);
+        $c = $connection->real_escape_string($_POST['c']);
+                             
         $sql = $connection->query("SELECT puzzle_image FROM gpuzzles 
-        WHERE puzzle_name LIKE '%$q%' 
-        OR author_name LIKE '%$q%' 
-        OR creator_name LIKE '%$q%'");
+        WHERE author_name = '$a'
+        AND creator_name = '$c' 
+        AND keywords LIKE '%$k%'");
 
 		if ($sql->num_rows > 0) {
 

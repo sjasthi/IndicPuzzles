@@ -21,10 +21,7 @@ include_once 'db_configuration.php';
         $target_file = $target_dir . basename($_FILES["bookFileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        //if directory doesn't exist, make it
-        if(!is_dir($target_file))
-        //then make it
-                mkdir($target_file);
+  
         // Check if image file is a actual image or fake image
         //if(isset($_POST["submit"])) {
          //   $check = getimagesize($_FILES["puzzleFileToUpload"]["tmp_name"]);

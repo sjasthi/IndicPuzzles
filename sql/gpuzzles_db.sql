@@ -46,7 +46,7 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`id`, `book_name`, `author_name`, `image_name`) VALUES
+INSERT INTO `books` (`id`, `book_name`, `author_name`, `book_cover`) VALUES
 (3, 'English Vowel Changes', 'Siva', ''),
 (4, 'Easy Cross Words  V.1', 'Siva', '');
 

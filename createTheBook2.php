@@ -81,7 +81,7 @@ include_once 'db_configuration.php';
 
         // if everything is ok, try to upload file
         //} else {
-                
+                move_uploaded_file($_FILES["bookFileToUpload"]["tmp_name"], $target_file);
                 $sql = "INSERT INTO books( author_name, book_name, book_cover)
                 VALUES ('$authorName','$bookName', '$bookFileToUploadName)
                 ";

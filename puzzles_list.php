@@ -44,8 +44,8 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 
 <!-- Page Content -->
 <br><br>
-<div class="container-fluid">
-<?php
+		<div class="container-fluid">
+			<?php
         if(isset($_GET['createPuzzle'])){
             if($_GET["createPuzzle"] == "Success"){
                 echo '<br><h3>Success! Your puzzles have been added!</h3>';
@@ -70,34 +70,34 @@ $GLOBALS['data'] = mysqli_query($db, $query);
             }
         }
     ?>
-   
-   
-    <h2 id="title">Puzzle List</h2><br>
-    
-    <div id="customerTableView">
-       <!-- 
+
+
+			<h2 id="title">Puzzle List</h2><br>
+
+				<div id="customerTableView">
+					<!-- 
     <button><a class="btn btn-sm" href="createBook.php">Create a Book</a></button>
     <button><a class="btn btn-sm" href="createPuzzle.php">Create a Puzzle</a></button>
        -->
-        <table class="display" id="ceremoniesTable" style="width:100%">
-            <div class="table responsive">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Creator</th>
-                    <th>Author</th>
-                    <th>Book</th>
-                    <th>Notes</th>
-                    <th>Keywords</th>
-                    <th>Puzzle</th>
-                    <th>Solution</th>                
-                    <th>Modify</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
+					<table class="display" id="ceremoniesTable" style="width:100%">
+						<div class="table responsive">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Creator</th>
+									<th>Author</th>
+									<th>Book</th>
+									<th>Notes</th>
+									<th>Keywords</th>
+									<th>Puzzle</th>
+									<th>Solution</th>                
+									<th>Modify</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
 
                 // fetch the data from $_GLOBALS
                 if ($data->num_rows > 0) {
@@ -124,48 +124,48 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     echo "0 results";
                 }//end else
                 ?>
-                </tbody>
-            </div>
-        </table>
-    </div>
-</div>
+							</tbody>
+						</div>
+					</table>
+				</div>
+			</div>
 
-<!-- /.container -->
-<!-- Footer -->
-<footer class="page-footer text-center">
-    <p>Cougars - ICS 499</p>
-</footer>
+			<!-- /.container -->
+			<!-- Footer -->
+			<footer class="page-footer text-center">
+				<p>Cougars - ICS 499</p>
+			</footer>
 
-<!--JQuery-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+			<!--JQuery-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
-<!--Data Table-->
-<script type="text/javascript" charset="utf8"
+			<!--Data Table-->
+			<script type="text/javascript" charset="utf8"
         src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" charset="utf8"
+			<script type="text/javascript" charset="utf8"
         src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 
-<script type="text/javascript" language="javascript">
+			<script type="text/javascript" language="javascript">
     $(document).ready( function () {
-        
+
         $('#ceremoniesTable').DataTable( {
             dom: 'lfrtBip',
             buttons: [
@@ -177,7 +177,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
         $('#ceremoniesTable thead tr:eq(1) th').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    
+
             $( 'input', this ).on( 'keyup change', function () {
                 if ( table.column(i).search() !== this.value ) {
                     table
@@ -187,15 +187,15 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                 }
             } );
         } );
-    
+
         var table = $('#ceremoniesTable').DataTable( {
             orderCellsTop: true,
             fixedHeader: true,
             retrieve: true
         } );
-        
+
     } );
 
-</script>
-</body>
-</html>
+			</script>
+		</body>
+	</html>

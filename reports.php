@@ -6,7 +6,7 @@
   include("./nav.php");
 
   $query = "SELECT DISTINCT book_name, author_name, COUNT(*) FROM gpuzzles GROUP BY book_name";
-  $query2 = "SELECT DISTINCT keywords, COUNT(*) FROM gpuzzles CROSS APPLY STRING_SPLIT(keywords, ',') GROUP BY keywords";
+  $query2 = "SELECT DISTINCT keywords, COUNT(*) FROM gpuzzles GROUP BY keywords";
   $query3 = "SELECT DISTINCT author_name, COUNT(*) FROM gpuzzles GROUP BY author_name";
   $query5 = "SELECT DISTINCT creator_name, COUNT(*) FROM gpuzzles GROUP BY creator_name";
 $GLOBALS['data'] = mysqli_query($db, $query);
@@ -16,10 +16,22 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 
  ?>
 <style>
+	#customerTableView {
+		width: 1000px;
+	}
+	#ceremoniesTable {
+		table-layout: fixed;
+	}
+	#ceremoniesTable td {
+		padding: 10px;
+	}
+	#ceremoniesTable th {
+		padding: 10px;
+	}
 	#total {
-	padding-top: 15px;
 	font-size: 130%;
 	text-align: right;
+	background-color: lightgrey;
 	}
 	#title {
 	text-align: center;
@@ -44,7 +56,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 <div class="container-fluid">
 	<h1 id="title">Summary Tables</h1><br>
 		<div id="customerTableView">
-			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
+			<table class="display table-striped table-bordered table-fixed" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Book Summary</h4>
 					<thead>
@@ -75,7 +87,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 					echo "
 	<tfoot>
     <tr>
-     <th></th><th></th><th id='total'>Total : $qty</th>
+    <th colspan='3' id='total'>Total : $qty</th>
     </tr>
 </tfoot>";
                 ?>
@@ -83,7 +95,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 				</div>
 			</table>
 			<br><hr><br>
-			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
+			<table class="display table-striped table-bordered table-fixed" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Keyword Summary</h4>
 					<thead>
@@ -112,7 +124,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 					echo "
 	<tfoot>
     <tr>
-     <th></th><th id='total'>Total : $qty</th>
+    <th colspan='2' id='total'>Total : $qty</th>
     </tr>
 </tfoot>";
                 ?>
@@ -120,7 +132,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 				</div>
 			</table>
 			<br><hr><br>
-			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
+			<table class="display table-striped table-bordered table-fixed" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Author Summary</h4>
 					<thead>
@@ -149,7 +161,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 					echo "
 	<tfoot>
     <tr>
-     <th></th><th id='total'>Total : $qty</th>
+    <th colspan='2' id='total'>Total : $qty</th>
     </tr>
 </tfoot>";
                 ?>
@@ -157,7 +169,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 				</div>
 			</table>
 						<br><hr><br>
-			<table class="display" id="ceremoniesTable" style="width:80%" align="center">
+			<table class="display table-striped table-bordered table-fixed" id="ceremoniesTable" style="width:80%" align="center">
 				<div class="table responsive">
 					<h4>Creator Summary</h4>
 					<thead>
@@ -186,7 +198,7 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
 					echo "
 	<tfoot>
     <tr>
-     <th></th><th id='total'>Total : $qty</th>
+    <th colspan='2' id='total'>Total : $qty</th>
     </tr>
 </tfoot>";
                 ?>

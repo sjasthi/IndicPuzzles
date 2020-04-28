@@ -23,7 +23,10 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS gpuzzles;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS preferences;
 --
 -- Table structure for table `books`
 --

@@ -38,130 +38,86 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 <!-- Page Content -->
 <br><br>
 
-		<h1 id="title">Search Puzzles</h1><br>
+	<h1 id="title">Search Puzzles</h1><br>
 
-			<div class="container-fluid">
+		<div class="container-fluid">
 
-				<body>
-					<form method="post" action="compile_Puzzle1.php" class="text-center">
-                        <center><table> 
-                        <tr>
+			<body>
+                <?php
+                    
 
-                        <td>
-                        <?php
+                    $sql = "SELECT DISTINCT author_name FROM gpuzzles";
 
-                    $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
-                    or die ('Cannot connect to db');
+                    $result = mysqli_query($db, $sql);
 
-                        $result = $conn->query("select distinct author_name from gpuzzles");
+                    $options = "";
+                    while($row = mysqli_fetch_array($result))
+                    {
+                        $options = $options."<option>$row[author_name]</option>";
+                    }
+                ?>
+                <?php
+                    
+
+                    $sql1 = "SELECT DISTINCT creator_name FROM gpuzzles";
+
+                    $result1 = mysqli_query($db, $sql1);
+
+                    $options1 = "";
+                    while($row1 = mysqli_fetch_array($result1))
+                    {
+                        $options1 = $options1."<option>$row1[creator_name]</option>";
+                    }
+                ?>
+
+                <form method="POST" action"compile_Puzzle.php" class="text-center">
+                Author: <select name="a" required>  
+                <option><?php echo $options;?></option>
+                </select>
+                <br><br>
+
+                Puzzle Creator: <select name="c" required> 
+                <option><?php echo $options1;?></option>
+                </select>
+                <br><br>
+
+                Keywords: <input type="text" name="k" value="<?php if (isset($_POST['k'])) echo $_POST['k']; ?>" placeholder="Type here..." >
+                <br><br>
+                <input type="submit" name="submit" value="Search">
+                <input type="submit" name="submit" target="_blank" value="Compile" formaction="compile_The_Puzzle.php" formtarget="_blank">
+                </form> 
+
+                <?php
+                    if (isset($_POST['submit'])) 
+                    {
+
+                        $connection = new mysqli("localhost", "root", "", "gpuzzles_db");
                         
-                        echo "<html>";
-                        echo "<body>";
-                        echo "Author: ";
+                        $k = $connection->real_escape_string($_POST['k']);
+                        $a = $connection->real_escape_string($_POST['a']);
+                        $c = $connection->real_escape_string($_POST['c']);
+                                             
+                        $sql = $connection->query("SELECT puzzle_image FROM gpuzzles 
+                        WHERE author_name = '$a'
+                        AND creator_name = '$c' 
+                        AND keywords LIKE '%$k%'");
 
-                        echo "<select name='author_name'>";
+                        if ($sql->num_rows > 0) 
+                        {
 
-                        while ($row = $result->fetch_assoc()) {
-
-                                    unset($bookName, $name);
-                                    $bookName = $row['author_name'];
-                                    $name = $row['author_name']; 
-                                    
-                                    echo '<option value="author_name">'.$name.'</option>';
-                                    
+                            while ($data = $sql->fetch_array())
+                            
+                                echo '<img class="thumbnailSize" src="Images/puzzle_images/' .$data["puzzle_image"]. '" 
+                                onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$data["puzzle_image"].'"> &nbsp;';  
+                        } 
+                        else
+                        {
+                            echo "No puzzles found! Please check your input or filter and try again.";
                         }
-                    //check out modify the dress to get this fixed
-                        echo "</select>";
-                        echo "</body>";
-                        echo "</html>";
 
-                    echo'<input class="hidden" name="author_name" value ="'.$name.'"/>'
-                    ?>
-                    </td>
-                            </tr>
-
-                        <tr>
-
-                        <td>
-                        <?php
-
-                            $conn = new mysqli('localhost', 'root', '', 'gpuzzles_db') 
-                            or die ('Cannot connect to db');
-
-                                $result = $conn->query("select distinct creator_name from gpuzzles");
-                                
-                                echo "<html>";
-                                echo "<body>";
-                                echo "Puzzle Creator: ";
-
-                                echo "<select name='creator_name'>";
-
-                                while ($row = $result->fetch_assoc()) {
-
-                                            unset($bookName, $name);
-                                            $bookName = $row['creator_name'];
-                                            $name = $row['creator_name']; 
-                                            
-                                            echo '<option value="creator_name">'.$name.'</option>';
-                                            
-                                }
-                            //check out modify the dress to get this fixed
-                                echo "</select>";
-                                echo "</body>";
-                                echo "</html>";
-
-                            echo'<input class="hidden" name="creator_name" value ="'.$name.'"/>'
-                            ?>
-                        </td>
-                            </tr>
-                        </table></center>
-                                <br>
-                        <input type="text" name="q" value="<?php if (isset($_POST['q'])) echo $_POST['q']; ?>" placeholder="Keywords ...">
-                        <br><br>
-						<input type="submit" name="submit" value="Search">
-
-						<input type="submit" name="submit" target="_blank" value="Compile" formaction="compile_The_Puzzle.php" formtarget="_blank">
-								</form>
-
-								<?php
-	if (isset($_POST['submit'])) {
-
-        $connection = new mysqli("localhost", "root", "", "gpuzzles_db");
-        
-        $q = $connection->real_escape_string($_POST['author_name']);
-        // $q1 = $connection->real_escape_string($_POST['creator_name']);
-        $column = $connection->real_escape_string($_POST['author_name']);
-        $column1 = $connection->real_escape_string($_POST['creator_name']);
-
-		if ($column == "" || ($column != "author_name" && $column != "creator_name"))
-        	$column = "author_name";
-        
-        $sql = $connection->query("SELECT puzzle_image FROM gpuzzles 
-        WHERE puzzle_name LIKE '%$q%'
-        OR author_name LIKE '%$q%'
-        OR creator_name LIKE '%$q%'");
-
-        // $sql = $connection->query("SELECT puzzle_image FROM gpuzzles 
-        // WHERE author_name LIKE '%$q%' AND creator_name LIKE '%$q1%'");
-
-        // $sql = $connection->query("SELECT puzzle_image FROM gpuzzles 
-        // WHERE (author_name = '$q' AND creator_name = '$q1')");
-
-		if ($sql->num_rows > 0) {
-
-            while ($data = $sql->fetch_array())
+                    }
             
-                echo '<img class="thumbnailSize" src="Images/puzzle_images/' .$data["puzzle_image"]. '" 
-                onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$data["puzzle_image"].'"> &nbsp;';  
-      } 
-      else{
-      
-        echo "No puzzles found! Please check your input or filter and try again.";
-      }
-
-  }
-  
-?>
+                ?>
 
 
 							</div>

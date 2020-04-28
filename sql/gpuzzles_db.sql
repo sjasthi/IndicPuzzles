@@ -39,14 +39,14 @@ CREATE TABLE `books` (
   `id` int(50) NOT NULL,
   `book_name` varchar(50) CHARACTER SET latin1 NOT NULL,
   `author_name` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `image_name` varchar(50) CHARACTER SET latin1 NOT NULL
+  `book_cover` varchar(50) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`id`, `book_name`, `author_name`, `image_name`) VALUES
+INSERT INTO `books` (`id`, `book_name`, `author_name`, `book_cover`) VALUES
 (3, 'English Vowel Changes', 'Siva', ''),
 (4, 'Easy Cross Words  V.1', 'Siva', '');
 

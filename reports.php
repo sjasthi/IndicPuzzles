@@ -17,7 +17,8 @@ $GLOBALS['creatordata'] = mysqli_query($db, $query5);
  ?>
 <style>
 	#customerTableView {
-		width: 1000px;
+		width: 1200px;
+		margin: auto;
 	}
 	#ceremoniesTable {
 		table-layout: fixed;

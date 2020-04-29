@@ -108,7 +108,7 @@ if ($result->num_rows > 0) {
       or die ('Cannot connect to db');
       
           $result = $conn->query("select * from books");
-          echo "Book name:";
+          echo "<h3>Book name</h3>:";
           echo "<select name='book_name'>";
       
           while ($row = $result->fetch_assoc()) {

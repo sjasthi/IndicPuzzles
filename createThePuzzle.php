@@ -5,7 +5,8 @@ include_once 'db_configuration.php';
 
     // Initialize variables        
     echo "HERE";
-    $puzzleName = basename($_FILES["puzzleFileToUpload"]["name"]);
+    //$puzzleName = basename($_FILES["puzzleFileToUpload"]["name"]);
+   $puzzleName = mysqli_real_escape_string($db,$_POST['puzzleName']);
     $creatorName = mysqli_real_escape_string($db,$_POST['creatorName']);
     $authorName = mysqli_real_escape_string($db,$_POST['authorName']);
     $bookName = mysqli_real_escape_string($db,$_POST['bookName']);

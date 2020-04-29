@@ -64,7 +64,7 @@ include_once 'db_configuration.php';
                 $sql = "INSERT INTO books(book_name, author_name, image_name)
                 VALUES ('$bookName','$authorName','$bookFileToUploadName')
                 ";
-
+              //check on phpmyadmin
                 mysqli_query($db, $sql);
                 header('location: books_list.php?createBook=Success');
                 }

@@ -32,12 +32,13 @@
 														<img src ="./images/main_logo.png">
 															<br/>Gpuzzles</li>
 													</a>
-
+<!--
 													<a href="index.php">
 														<li>
 															<img src="./images/home.png">
 																<br/>Home</li>
 														</a>
+														-->
 
 														<a href="puzzles_list.php">
 															<li>

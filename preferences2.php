@@ -7,23 +7,23 @@ $page_title = 'ABC Dresses > Preferences';
     //$page="questions_list.php";  DONT NEED LOGIN. THIS WILL USE COOKIES if not logged in.
     //verifyLogin($page);
 
-$sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_PER_ROW'";
-$sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_DRESSES_TO_SHOW'";
-$sql3 = "SELECT `comments` FROM `preferences` WHERE `name`= 'NAME_OF_FAVORITE_DRESS'";
-$sql4 = "SELECT `comments` FROM `preferences` WHERE `name`= 'DEFAULT_VIEW_FOR_HOME_PAGE'";
-$sql5 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_HEIGHT_IN_GRID'";
-$sql6 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_WIDTH_IN_GRID'";
-$sql7 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_HEIGHT_IN_CAROUSAL'";
-$sql8 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_WIDTH_IN_CAROUSAL'";
+$sql1 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_PUZZLES_PER_ROW'";
+$sql2 = "SELECT `value` FROM `preferences` WHERE `name`= 'NO_OF_PUZZLES_TO_SHOW'";
+//$sql3 = "SELECT `comments` FROM `preferences` WHERE `name`= 'NAME_OF_FAVORITE_DRESS'";
+//$sql4 = "SELECT `comments` FROM `preferences` WHERE `name`= 'DEFAULT_VIEW_FOR_HOME_PAGE'";
+//$sql5 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_HEIGHT_IN_GRID'";
+//$sql6 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_WIDTH_IN_GRID'";
+//$sql7 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_HEIGHT_IN_CAROUSAL'";
+//$sql8 = "SELECT `value` FROM `preferences` WHERE `name`= 'IMAGE_WIDTH_IN_CAROUSAL'";
 
 $results = mysqli_query($db,$sql1);
 $results2 = mysqli_query($db,$sql2);
-$results3 = mysqli_query($db,$sql3);
-$results4 = mysqli_query($db,$sql4);
-$results5 = mysqli_query($db,$sql5);
-$results6 = mysqli_query($db,$sql6);
-$results7 = mysqli_query($db,$sql7);
-$results8 = mysqli_query($db,$sql8);
+//$results3 = mysqli_query($db,$sql3);
+//$results4 = mysqli_query($db,$sql4);
+//$results5 = mysqli_query($db,$sql5);
+//$results6 = mysqli_query($db,$sql6);
+//$results7 = mysqli_query($db,$sql7);
+//$results8 = mysqli_query($db,$sql8);
 
 //gets number of rows
 if(mysqli_num_rows($results)>0){
@@ -33,7 +33,7 @@ if(mysqli_num_rows($results)>0){
 }
 $rows = $column[0]['value'];
 
-//gets number of dresses
+//gets number of puzzles
 if(mysqli_num_rows($results2)>0){
     while($row = mysqli_fetch_assoc($results2)){
         $dresses[] = $row;

@@ -46,7 +46,7 @@ if(isset($_POST['upload']))
                     //code
                             //this one creates the directory and inserts the image into the directory
                     $sql = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes, keywords)
-                    VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$bookName.$puzzleName','$solutionFileToUploadName','$notes','$keywords')
+                    VALUES ('$puzzleName','$creatorName','$authorName','$bookName','$puzzleName','$solutionFileToUploadName','$notes','$keywords')
                     "; 
                                 //this one will not insert the puzzle_image into the puzzle image column
                        $sql2 = "INSERT INTO gpuzzles(puzzle_name, creator_name, author_name, book_name, puzzle_image, solution_image, notes)

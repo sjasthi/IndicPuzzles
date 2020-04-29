@@ -108,20 +108,26 @@ if ($result->num_rows > 0) {
       or die ('Cannot connect to db');
       
           $result = $conn->query("select * from books");
-
+          echo "Book name:";
           echo "<select name='book_name'>";
       
           while ($row = $result->fetch_assoc()) {
-      
-                        unset($id, $name);
-                        $id = $row['book_name'];
-                        $name = $row['book_name']; 
-                        echo '<option value="'.$id.'">'.$name.'</option>';
-                       
-      }
-      
-          echo "</select>";
-      echo "</form>";
+
+            unset($bookName, $name);
+            $bookName = $row['book_name'];
+            $name = $row['book_name']; 
+            //append the name for the option parameter to be passed to DB
+            echo '<option value="book_name">'.$name.'</option>';
+           
+}
+//check out modify the dress to get this fixed
+//modify dress method didnt work
+echo "</select>";
+echo "</body>";
+echo "</html>";
+//but this did
+echo'<input class="hidden" name="bookName" value ="'.$name.'"/>';
+
     
     }//end while
 }//end if

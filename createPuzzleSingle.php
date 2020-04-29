@@ -94,7 +94,7 @@ or die ('Cannot connect to db');
                   $bookName = $row['book_name'];
                   $name = $row['book_name']; 
                   //append the name for the option parameter to be passed to DB
-                  echo '<option value="book_name">'.$name.'</option>';
+                  echo '<option value="bookName">'.$name.'</option>';
                  
     }
 //check out modify the dress to get this fixed
@@ -103,7 +103,7 @@ or die ('Cannot connect to db');
     echo "</body>";
     echo "</html>";
 //but this did
-echo'<input class="hidden" name="book_name" value ="'.$name.'"/>'
+echo'<input class="hidden" name="bookName" value ="'.$name.'"/>'
 ?>
 
 	<input class="button" type="submit" value="Create Puzzle" class="btn btn-primary btn-md align-items-center" name="upload" />

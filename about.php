@@ -1,4 +1,4 @@
-<?php $page_title = 'GPuzzles > About'; ?>
+<?php $page_title = 'Indic Puzzles > About'; ?>
 <?php include('nav.php'); 
 
 //testing ?>
@@ -8,7 +8,7 @@
 
 
 	<head>
-		<title> GPuzzles (About) </title>
+		<title> Indic Puzzles->About </title>
 	</head>
 
 	<style>
@@ -55,18 +55,11 @@
 
 	<body>
 
-		<h1 id="title">About Us</h1>
-		<h4 class="directions">GPuzzles app is created in ICS499 (Spring 2020) class at Metropolitan State University.</h4>
-
-		<br> Based off A3-A4 solution by  (Joseph Schreifels) (joseph.schreifels@my.metrostate.edu)<br>
-				<br><strong> Gpuzzles Team:</strong>
+		<h1 id="title">About Indic Puzzles</h1>
+		<h4 class="directions">Indic Puzzles V1.0 is created in ICS499 (Spring 2020) class at Metropolitan State University.</h4>
 					<br> (Cole Burnham) ( cole.burnham@my.metrostate.edu )
-						<br> (Sommy Yang) ( sommy.yang@my.metrostate.edu )
-							<br> (Xai Vang) ( xai.vang@my.metrostate.edu )
-								<br> (Mohamed Abdullahi) ( Mohamed.abdullahi@my.metrostate.edu )
-									<br> (Corey Pike) ( corey.pike@my.metrostate.edu )
-										<br> Acknowledgements: It used QuizMaster 1.0 (done by Alex Rader, David Jaqua, Sip Xayaxang in ICS325 Summer 2019) as the basis.
-											<br>
-												<br>
+					<br> Acknowledgements: It used QuizMaster 1.0 (done by Alex Rader, David Jaqua, Sip Xayaxang in ICS325 Summer 2019) as the basis.
+					<br>
+					<br>
 
 												</body>

@@ -6,14 +6,6 @@ require 'db_configuration.php';
 $query = "SELECT * FROM gpuzzles";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
-// $GLOBALS['topic'] = mysqli_query($db, $query);
-// $GLOBALS['puzzle'] = mysqli_query($db, $query);
-// $GLOBALS['choice_1'] = mysqli_query($db, $query);
-// $GLOBALS['choice_2'] = mysqli_query($db, $query);
-// $GLOBALS['choice_3'] = mysqli_query($db, $query);
-// $GLOBALS['choice_4'] = mysqli_query($db, $query);
-// $GLOBALS['answer'] = mysqli_query($db, $query);
-// $GLOBALS['puzzle_image'] = mysqli_query($db, $query);
 ?>
 
 <?php $page_title = 'Gpuzzles list'; ?>
@@ -89,7 +81,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                     <th>Author</th>
                     <th>Book</th>
                     <th>Notes</th>
-                    <th>Keywords</th>
                     <th>Puzzle</th>
                     <th>Solution</th>                
                     <th>Modify</th>
@@ -110,7 +101,6 @@ $GLOBALS['data'] = mysqli_query($db, $query);
                                 <td>'.$row["author_name"].'</td>
                                 <td>'.$row["book_name"].' </span> </td>
                                 <td>'.$row["notes"].'</span></td>
-                                <td>'.$row["keywords"].' </span> </td>
 
   
                                 <td><img class="thumbnailSize" src="Images/puzzle_images/' .$row["puzzle_image"]. '" onerror=this.src="Images/index_images/ImageNotFound.png" alt="Images/puzzle_images/'.$row["puzzle_image"].'"></td>

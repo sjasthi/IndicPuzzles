@@ -8,7 +8,7 @@ include('nav.php');
 <html>
 
 	<head>
-		<title>GPuzzles</title>
+		<title>Indic Puzzles</title>
 	</head>
 	<style>
 		.image {
@@ -120,7 +120,6 @@ include('nav.php');
 
                 // get random index from array $topics
                 $randIndex = array_rand($topics);
-
                 $topic = $topics[$randIndex]['puzzle_name'];
                 $pic = $pics[$randIndex]['puzzle_image'];
                 echo "

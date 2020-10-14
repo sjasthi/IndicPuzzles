@@ -3,9 +3,9 @@
 
 [2] Launch XAMPP; Start Apache Server and SQL Server; 
 
-[3] Go to SQL Admin panel (phpmyadmin); Create a database called "gpuzzles_db".
+[3] Go to SQL Admin panel (phpmyadmin); Create a database called "indicpuzzles_db".
 
-[4] Import the SQL file (xampp/htdocs/IndicPuzzles/sql/gpuzzles_db.sql) into the database.
+[4] Import the SQL file (xampp/htdocs/IndicPuzzles/sql/indicpuzzles_db.sql) into the database.
 
 [5] Launch the IndicPuzzles application
 http://localhost/IndicPuzzles

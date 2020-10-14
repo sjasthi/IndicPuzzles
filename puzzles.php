@@ -12,8 +12,8 @@ include('nav.php');
 	</head>
 	<style>
 		.image {
-		width: 842px;
-		height: 595px;
+		width: 100px;
+		height: 100px;
 		padding: 20px 20px 20px 20px;
 		transition: transform .2s;
 		}
@@ -68,11 +68,7 @@ include('nav.php');
         }
     }
     ?>
-
-
-		<h1 id="title2">Welcome to Indic Puzzles</h1>
-		<h2 id="directions">Explore 1000s of Puzzles in Indic Language!</h2><br>
-        <h2 id="directions">Here is a puzzle for you to play!</h2><br>
+		<h1 id="title2">What do you like to play today?</h1>
 
 			<?php
 
@@ -111,11 +107,7 @@ include('nav.php');
     }
 
     $columns = $column[0]['value'];
-    //$manyItems = $manyItem[0]['value'];
-
-    // hard coding $manyItems to 1; Need to figure out a way to show only featured puzzles
-    // not a random puzzle
-    $manyItems = 1;
+    $manyItems = $manyItem[0]['value'];
 
     echo "<table id = 'table_2'>";
     echo "<tr>";

@@ -56,10 +56,17 @@
 	<body>
 
 		<h1 id="title">About Indic Puzzles</h1>
-		<h4 class="directions">Indic Puzzles V1.0 is created in ICS499 (Spring 2020) class at Metropolitan State University.</h4>
-					<br> (Cole Burnham) ( cole.burnham@my.metrostate.edu )
-					<br> Acknowledgements: It used QuizMaster 1.0 (done by Alex Rader, David Jaqua, Sip Xayaxang in ICS325 Summer 2019) as the basis.
-					<br>
-					<br>
+
+		<h4> 
+		Hello Puzzler! <br> <br>
+
+Welcome to Indic Puzzles! <br><br>
+
+Children learn best when the learning experiences include puzzles.  There are numerous tools and web sites available to generate and play English puzzles. However, the resources to generate and play puzzles in Indian languages are not available.
+<br><br>
+The goal of Indic Puzzles is to support the community of teachers, schools, and children interested in learning Indic Languages through puzzles.
+	</h4>
+
+
 
 												</body>

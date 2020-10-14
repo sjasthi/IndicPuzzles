@@ -1,19 +1,19 @@
 <?php
 require 'bin/functions.php';
 require 'db_configuration.php';
-include('nav.php');
+include('admin_nav.php');
 
 ?>
 
 <html>
 
 	<head>
-		<title>Indic Puzzles -> Reports</title>
+		<title>Indic Puzzles > Admin</title>
 	</head>
 	<style>
 		.image {
-		width: 100px;
-		height: 100px;
+		width: 842px;
+		height: 595px;
 		padding: 20px 20px 20px 20px;
 		transition: transform .2s;
 		}
@@ -61,17 +61,12 @@ include('nav.php');
 	</style>
 
 	<body>
-	
-		<h1 id="title2">TODO: Provide end-user specific reports</h1>
 
-		<br>
-		<br>
+
+		<h1 id="title2">Welcome to Indic Puzzles > Administration</h1>
+        <h2 id="directions">TODO:  Provide admin summary / report on puzzles, books, users, sponsors, etc. </h2><br>
+
 		
-		<h4 >
-TODO: Graphs, Trends, Summary, Visually appealing reports<br>
-
-	</h4>
-
 
 		</body>
 

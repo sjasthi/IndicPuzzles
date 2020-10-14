@@ -6,18 +6,10 @@ require 'db_configuration.php';
 $query = "SELECT * FROM books";
 
 $GLOBALS['data'] = mysqli_query($db, $query);
-// $GLOBALS['topic'] = mysqli_query($db, $query);
-// $GLOBALS['puzzle'] = mysqli_query($db, $query);
-// $GLOBALS['choice_1'] = mysqli_query($db, $query);
-// $GLOBALS['choice_2'] = mysqli_query($db, $query);
-// $GLOBALS['choice_3'] = mysqli_query($db, $query);
-// $GLOBALS['choice_4'] = mysqli_query($db, $query);
-// $GLOBALS['answer'] = mysqli_query($db, $query);
-// $GLOBALS['puzzle_image'] = mysqli_query($db, $query);
 ?>
 
-<?php $page_title = 'Books list'; ?>
-<?php include('nav.php'); 
+<?php $page_title = 'Admin > Books list'; ?>
+<?php include('admin_nav.php'); 
     $page="books_list.php";
     //verifyLogin($page);
 ?>
@@ -65,7 +57,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
     ?>
 
 
-			<h1 id="title">Book List</h1><br>
+			<h1 id="title">Admin > Apps List</h1><br>
 
 				<div id="customerTableView">
 					<!-- removing per request of instructor

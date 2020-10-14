@@ -9,7 +9,7 @@ $GLOBALS['data'] = mysqli_query($db, $query);
 ?>
 
 <?php $page_title = 'Gpuzzles list'; ?>
-<?php include('nav.php'); 
+<?php include('admin_nav.php'); 
 
     $page="puzzles_list.php";
     //verifyLogin($page);
